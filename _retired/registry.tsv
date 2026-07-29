@@ -2,8 +2,8 @@
 # columns: id <TAB> pattern (Python regex, contextual — a CLAIM, not a bare word) <TAB> scope <TAB> authority <TAB> message
 # Every row cites an authoritative ruling. This file indexes; it does not rule. Where a row and its ruling disagree, the ruling wins.
 archetype-operative	Archetype[^\n]{0,60}(executable|operative|compiled|derived|is stored|is authored)	md	CON-0023	Archetype is a rendered Presentation view — never operative/authored/stored
-archetype-author	(author|store|resolve)[^\n]{0,20}(an |the )?Archetype	md	CON-0023	You author the Figure; Presentation RENDERS the Archetype (never authored/stored/resolved)
-frame-hierarchy	Frame[^\n]{0,40}(contains|→)[^\n]{0,20}Archetype	md	CON-0023	Frame does not contain Archetypes; FrameSpec is a socket schema
+archetype-author	(author|stor|resolv)\w*\s+(an?\s+|the\s+)?Archetype	md	CON-0023	You author the Figure; Presentation RENDERS the Archetype (never authored/stored/resolved)
+frame-hierarchy	Frame(?!Spec)[^\n]{0,40}(contains|→)[^\n]{0,20}Archetype	md	CON-0023	Frame does not contain Archetypes; FrameSpec is a socket schema
 frame-layer	Frame[^\n]{0,15}(is a|as a)[^\n]{0,6}(layer|root Object)	md	CON-0023	Frame is a FrameSpec (schema) + physical Frame — not a layer or root Object
 framespec-owns	FrameSpec[^\n]{0,15}owns	md	CON-0023	FrameSpec owns no fact; the Figure Definition owns role/tool
 nerve-check	\bNerve (test|roll|check)\b	md	CON-0001; CON-0011	Nerve is a tiered SAVE; the aftermath roll is the Morale check
