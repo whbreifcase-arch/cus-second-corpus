@@ -30,13 +30,25 @@ The same Definition, rendered in Kernel language for a player who wants to see t
 
 ```json
 {
-  "id": "heal", "verb": "ACTION", "resolution": "graded",
-  "target": { "kind": "Figure", "relationship": "ally", "range": "contact" },
-  "constraints": ["target.standing", "target.wounds_remaining < target.max_wounds"],
-  "dice": 3, "success_number": 4,
-  "effects": { "1+": [ { "write": "target.wounds_remaining", "change": 1, "cap": "target.max_wounds" } ] }
+  "id": "heal",
+  "verb": "ACTION",
+  "resolution": "graded",
+  "targets": "one friendly figure in contact",
+  "constraints": { "friendly": true },
+  "cost": { "agency": 1 },
+  "dice": 3,
+  "success_number": 4,
+  "grades": {
+    "1": ["restore 1 Wound"],
+    "2": ["restore 2 Wounds"],
+    "3": ["restore 3 Wounds"]
+  }
 }
 ```
+
+*(Valid current grammar — [Slice 1 · 03_GRAMMAR](../slice-1/03_GRAMMAR.md): `targets`, a `constraints`
+object, a `cost`, and discrete `grades` that do not inherit. HEAL could equally be `automatic` if it
+carried no uncertainty; here it rolls.)*
 
 Pull out **HEAL**, flip it, read the Kernel rendering, flip it back, keep playing. Two Presentation
 resolutions of one Definition — that is the whole trick, and it teaches the Kernel without forcing

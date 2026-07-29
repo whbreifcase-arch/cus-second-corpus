@@ -30,5 +30,6 @@ behavior*.
 > Second Corpus governs present behavior. Concordance governs the explanation of migration.
 > First Corpus governs claims about its own historical text. **No summary outranks its cited source.**
 
-The rebuild has not started. When it does, it proceeds through the Concordance's charter, status
-codes, and review gates — nothing enters this canon merely because it existed in the First Corpus.
+The rebuild proceeds through the Concordance's charter, status codes, and review gates — nothing
+enters this canon merely because it existed in the First Corpus. See **[`_retired/`](_retired/README.md)**
+for the register of dead terms (each cites the ruling that retired it).

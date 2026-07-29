@@ -1,0 +1,22 @@
+# CUS retired-claim registry — machine-readable source for _retired/sweep.py and README.md
+# columns: id <TAB> pattern (Python regex, contextual — a CLAIM, not a bare word) <TAB> scope <TAB> authority <TAB> message
+# Every row cites an authoritative ruling. This file indexes; it does not rule. Where a row and its ruling disagree, the ruling wins.
+archetype-operative	Archetype[^\n]{0,60}(executable|operative|compiled|derived|is stored|is authored)	md	CON-0023	Archetype is a rendered Presentation view — never operative/authored/stored
+archetype-author	(author|store|resolve)[^\n]{0,20}(an |the )?Archetype	md	CON-0023	You author the Figure; Presentation RENDERS the Archetype (never authored/stored/resolved)
+frame-hierarchy	Frame[^\n]{0,40}(contains|→)[^\n]{0,20}Archetype	md	CON-0023	Frame does not contain Archetypes; FrameSpec is a socket schema
+frame-layer	Frame[^\n]{0,15}(is a|as a)[^\n]{0,6}(layer|root Object)	md	CON-0023	Frame is a FrameSpec (schema) + physical Frame — not a layer or root Object
+framespec-owns	FrameSpec[^\n]{0,15}owns	md	CON-0023	FrameSpec owns no fact; the Figure Definition owns role/tool
+nerve-check	\bNerve (test|roll|check)\b	md	CON-0001; CON-0011	Nerve is a tiered SAVE; the aftermath roll is the Morale check
+nerve-3dice	(3-dice|three-dice|roll 3)[^\n]{0,25}Nerve	md	CON-0001	The 3-dice Nerve test is retired; Nerve is a tiered save
+reaction-resource	Reaction[^\n]{0,25}(Resource|pool|budget|economy)	md	First-Corpus reaction-struck	Reaction-as-Resource is struck; out-of-turn = free Written Triggers, capped by Position
+reaction-category	(Reaction|Support)[^\n]{0,15}(Packet )?categor	md	CON-0023	No Reaction/Support Packet category; Tools are Melee/Ranged/Hybrid
+shove	\bShove\b	md	CON-0012	"Shove" is retired → Push (a Push Effect on a packet)
+universal-ap	(AP ?= ?3 (for all|universal)|every figure[^\n]{0,20}3 AP|universal[^\n]{0,12}AP ?= ?3)	md	CON-0002	AP is by Rank — Square 2, Circle 3; "AP=3 for all" is struck drift
+one-way-ratchet	one-way ratchet	md	Slice-2 01_MIND_CHANNEL	Mind track steps down on unsaved Morale; only Rally steps up in-battle
+move-class	MOVE-class	md	Slice-1 03_GRAMMAR	Only three verbs; Form Up is a MOVE that ends in a Formation relationship
+circle-immune	Circle[^\n]{0,45}(immune to Morale|own break meter|breaks? by a[^\n]{0,12}trigger|never tests? Nerve|never breaks)	md	CON-0010	A Circle breaks like a Square via the Mind channel; resilience = high Nerve tier
+support-role	(Role[^\n]{0,20}(Support|Control)|\b(Support|Control)[^\n]{0,20}Role)	md	First-Corpus A	Roles are Pressure/Anchor/Utility; Control/Support were merged into Utility
+grade-ladder	\b(Rungs|Outcome Track)\b|\bLadder\b	md	First-Corpus D	Grade vocabulary retired → Success Grade (do not use Ladder/Rungs/Outcome Track)
+tempo-speed	Tempo[^\n]{0,25}(speed|movement rate)	md	CON-0022	Tempo is the cadence of the decision loop, not movement
+packet-back-def	back[^\n]{0,15}(=|is)[^\n]{0,6}Definition	md	CON-0023	Both Packet-card faces are Presentation; the JSON in code is the Definition
+caravan-roster	Caravan[^\n]{0,30}(carries|owns)[^\n]{0,10}(the )?roster	md	CON-0023	Caravan carries Books; the roster is membership Relationships (Book→Figure, Caravan→Book)

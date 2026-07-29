@@ -33,7 +33,7 @@ The **rhythm of the decision loop** — the interval between an opportunity and 
 - **Normal** — the loop generally opens and closes within one ordinary activation.
 - **Slow** — preparation, telegraphing, commitment, payoff, or recovery spread across multiple actions or turns.
 
-> **Tempo is *not* movement speed** (`tempo-is-not-speed`). Movement is Position — you spend Agency on
+> **Tempo is *not* movement speed** (`tempo-is-not-speed`). Movement is Position — you spend Agency on <!-- retired-lint: allow tempo-speed reason: states Tempo is NOT movement speed -->
 > MOVE. Tempo is the *cadence of applying Force*: artillery can out-range everything and still be Slow;
 > cavalry is Fast. And Tempo is **read by humans, never by the resolver** (Law 10) — an ordinal
 > classification that shapes how you *use* the figure, not a number the dice engine consumes.

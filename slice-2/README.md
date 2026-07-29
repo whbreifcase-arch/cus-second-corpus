@@ -45,6 +45,6 @@ battle is Slice 3. *[Ruling 11 keeps "Nerve" = the in-battle save and "Morale ch
 roll; Slice 2 builds the first, names the second, and defers it.]*
 
 ## Rulings honored
-- **Nerve** is a tiered save, rolled per incoming Morale point; there is **no 3-dice Nerve test**. *[Ruling 1]*
+- **Nerve** is a tiered save, rolled per incoming Morale point; there is **no 3-dice Nerve test**. *[Ruling 1]* <!-- retired-lint: allow nerve-check, nerve-3dice reason: states the retired 3-dice Nerve test to reject it -->
 - **Circle** = 3 AP, faceless, **never moves in formation**; **breaks via the standard Mind channel, exactly like a Square** (more resilient only by a higher Nerve tier). *[Rulings 2, 10 (rev.), 13]*
 - **A leader can Rally.** *[Ruling 9]*

@@ -1,9 +1,10 @@
 # Slice 3 · The Caravan
 
-If Persistence is *which State survives*, the **Caravan** is *where it survives*. It is the
-persistent expedition — the body of people, beasts, wagons and materiel that travels between
-battles and carries the roster. It is the **physical representation of the persistence axis**: an
-actual model on the table, not a spreadsheet.
+Persistence is *which State survives* — a **temporal scope**, not an axis
+([00_PERSISTENCE.md](00_PERSISTENCE.md)). The **Caravan** is the **shared expedition Entity** through
+which campaign-scale travel, facilities, and common capacity persist — the body of people, beasts,
+wagons and materiel that moves between battles. It is a **model on the table**, not a spreadsheet.
+(Personal durable state survives on the **Figures** and their **Books**, not "in" the Caravan.)
 
 ## The Caravan is an Entity
 

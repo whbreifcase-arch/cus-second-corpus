@@ -18,7 +18,7 @@ not control.
 ### Form Up
 On its activation, a Square in base contact with a friendly Square may **Form Up** — a **MOVE** (1 AP)
 that **ends in a legal Formation relationship**: it dresses into an existing Formation, or founds one.
-Form Up is not a new verb and not a "MOVE-class" anything; it is a MOVE with a coherency requirement
+Form Up is not a new verb and not a "MOVE-class" anything; it is a MOVE with a coherency requirement <!-- retired-lint: allow move-class reason: states MOVE-class is illegal vocabulary -->
 on where it ends.
 
 ### What the Formation is *for* (its benefit)

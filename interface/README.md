@@ -14,8 +14,8 @@ Definition · Procedure · Instance · Presentation
 
 Every physical component is a **manifestation inside** that architecture — overwhelmingly
 **Presentation**, plus **Position** and **containment**. Presentation *translates and mirrors*; it is
-**never authoritative.** A printed card, a sleeve, a token: if any of them disagrees with the object
-they represent, the object in code wins. Plastic never holds authority.
+**never authoritative.** A printed card, a sleeve, a token: if any disagrees with the authoritative
+**(Object × Layer)** fact it represents, **that fact wins.** Plastic never holds authority.
 
 > The physical interface is the **material implementation of Presentation, Position, and
 > containment** — not a new Kernel layer.
@@ -29,7 +29,7 @@ CARAVAN                         shared persistent state  +  the Book nook   (a p
    └── BOOK NOOK                a containment Relationship  (Caravan → Book)
          └── BOOK               one player's personal persistent object     (a player owns this)
                └── FIGURE FRAME the assembly & play interface for one Figure
-                     └── PACKET CARDS  individual executable capabilities (two-sided)
+                     └── PACKET CARDS  physical Presentation artifacts referencing executable Packet Definitions (two-sided)
 ```
 
 ## Docs

@@ -9,9 +9,9 @@ The **authoring schema** for a functional cell (`Role × Tool`, [../composition/
 It is *non-operative tooling data* — the engine never resolves it; it only **guides and validates
 construction**:
 
-- a **socket contract** — required sockets (a primary capability, a role-appropriate capability) and optional sockets (reposition, a WAIT-response, resource, support);
-- **capacity** — how many packets, of which kinds, may be fitted;
-- **compatibility** — which Packet Tool/category each socket accepts;
+- a **socket contract** — required and optional sockets. *(The exact sockets per cell — e.g. a primary capability, a role-appropriate one, a reposition, a WAIT-response — are ⚠ **PROVISIONAL / UNRESOLVED**, to be authored and ratified; only the *principle* of a socket contract is settled.)*
+- **capacity** — how many packets may be fitted;
+- **compatibility** — which Packet **Tool** (Melee / Ranged / Hybrid) each socket accepts;
 - **Signature + Tempo** declaration slots.
 
 Its job is to let a player **build a soldier** — insert existing Packets, or author compatible new

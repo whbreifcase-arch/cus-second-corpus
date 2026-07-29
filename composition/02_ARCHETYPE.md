@@ -1,8 +1,8 @@
 # Composition · The Archetype Pipeline
 
 An **Archetype** is *function made playable through identity and cadence* — and it is **rendered, not
-authored.** The *Figure* is authored (four primitives + Chassis + Packets); the Archetype is the
-**Presentation view** the constructor renders from them:
+authored.** The *Figure* is authored — the four composition fields (Role · Tool · Signature · Tempo)
+plus Chassis and Packets; the Archetype is the **Presentation view** the constructor renders from them:
 
 ```
 ARCHETYPE = Tempo( Signature( Role × Tool ) )
@@ -12,8 +12,11 @@ or, evocatively, **`(Role × Tool) ▷ Signature @ Tempo = Archetype`** — wher
 different job:
 
 - `×` — **locate** the functional cell (the Frame)
-- `▷` — **resolve** that cell into a repeated decision loop (the Signature)
+- `▷` — **specialize** that cell into a repeated decision loop (the Signature)
 - `@` — **express** that loop at a cadence (the Tempo)
+
+(These are Presentation-composition operators. `▷` is **specialize**, deliberately *not* "resolve" —
+`resolve` is a formal Packet term (`automatic`/`graded`/`table`), a different thing.)
 
 Read it as a pipeline, not a product:
 
@@ -27,10 +30,12 @@ PURPOSE + MEDIUM  →  FUNCTIONAL FRAME  →(Signature)→  DECISION LOOP  →(T
 
 `Role × Tool` locates a **FrameSpec** — a *socket contract*, **not** a taxonomic parent that "contains"
 archetypes. It is the **build-a-soldier authoring schema** for that functional cell: which sockets a
-Figure there must fill and may fill. It owns **Role, Tool, and packet expectations** — **not** body,
-equipment, or personality (those are Chassis / Overlays / Temperament). A FrameSpec is **not a root
+Figure there must fill and may fill. It is **parameterized by Role and Tool** and specifies **socket
+expectations** — it **owns no fact**: the Figure Definition owns its authored `role`/`tool`, and
+body/equipment/personality live in Chassis / Overlays / Temperament. A FrameSpec is **not a root
 Object** beside Entity/Packet/Relationship — it is authoring/interface tooling, and its *physical*
 embodiment (a housing with keyed slots) lives in [../interface/01_FRAME.md](../interface/01_FRAME.md).
+(Its exact required/optional sockets are ⚠ **PROVISIONAL** — see that doc.)
 
 The nine cells give recognizable *names* for the socket you are building in:
 
@@ -44,22 +49,22 @@ The nine cells give recognizable *names* for the socket you are building in:
 `Anchor × Ranged` (a Gunner socket) says *"denies space through ranged interaction"* and lists sockets
 to fill — but not yet *what the player repeatedly does.* That is the author's next choice: the Signature.
 
-## Stage 2 · Signature resolves the Frame  (▷)
+## Stage 2 · Signature specializes the Frame  (▷)
 
-**Signature is a resolver, not a fourth coordinate.** It does not sit beside Role and Tool — it acts on
-their **combination:** `Signature(Role × Tool)`. It answers: *what recognizable, repeated decision loop
-realizes this function through this tool?*
+**Signature is a specializer, not a fourth coordinate.** It does not sit beside Role and Tool — it acts
+on their **combination:** `Signature(Role × Tool)`. It answers: *what recognizable, repeated decision
+loop realizes this function through this tool?*
 
 The deep consequence: **the same Signature means something different on a different Frame.** Take
 `Suppress`:
 
-| Frame ▷ Suppress | Resolves to |
+| Frame ▷ Suppress | Specializes to |
 |---|---|
 | **Pressure × Ranged** ▷ Suppress | forces the enemy to react so the attacker can **advance** |
 | **Anchor × Ranged** ▷ Suppress | **denies a lane** and prevents passage |
 | **Utility × Ranged** ▷ Suppress | manipulates Morale / options / positioning **for someone else** |
 
-Same Signature; three different resolved behaviours — because it acts on Role *and* Tool together. Two
+Same Signature; three different specialized behaviours — because it acts on Role *and* Tool together. Two
 figures can share a Frame yet feel different because different Signatures produce different loops
 (Marksman's *Precision* vs Grenadier's *Blast*, both in the Shooter frame).
 
@@ -82,8 +87,8 @@ Archetype.
 
 ## Authored, then rendered — never inferred
 
-The primitive fields are **authored and authoritative**; the Archetype label is what **Presentation
-renders** from them for humans. A Figure stores the inputs (flat — [03_UNIT_PROFILE](03_UNIT_PROFILE.md)):
+The authored fields are **authoritative**; the Archetype label is what **Presentation renders** from
+them for humans. A Figure stores the inputs (flat — [03_UNIT_PROFILE](03_UNIT_PROFILE.md)):
 
 ```json
 { "role": "Anchor", "tool": "Ranged", "signature": "Suppress", "tempo": "Slow" }
@@ -116,7 +121,7 @@ identity.*
 
 The frozen reference sometimes smuggled Tempo *inside* an archetype's description — e.g. **Piercer** was
 `Shooter + Pierce`, but its text also said *"slow."* That "slow" was doing architectural work without
-owning a layer. The pipeline extracts it:
+its own field. The pipeline extracts it:
 
 ```
 Old:  Piercer = Shooter + Pierce + (secretly) slow
@@ -124,6 +129,6 @@ New:  Role Pressure · Tool Ranged · Frame Shooter · Signature Pierce · Tempo
 ```
 
 Now **Pierce** means *how the attack defeats protection* and **Slow** means *how often, and with what
-commitment, the loop fires* — two different knobs, each in its own layer, no hidden state.
+commitment, the loop fires* — two different knobs, each its own field, no hidden state.
 
 *Next: [03_UNIT_PROFILE.md](03_UNIT_PROFILE.md) — the Archetype stacked into a whole figure.*

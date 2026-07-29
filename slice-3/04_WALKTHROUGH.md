@@ -54,9 +54,10 @@ bite:
 - **Bed-cases:** **S1 and S3 both need a bed** — and the Caravan has **one bed slot.**
 
 **Forced choice — whom to carry.** Two figures who cannot walk, one wagon bed. The warband beds the
-veteran **S1** and **leaves S3.** S3's membership Relationship flips to `lost`: it is **removed from
-the roster.** The death this campaign turn was not a die roll — it was a **decision**, made because a
-wagon had one bed and two broken bodies in it.
+veteran **S1** and **leaves S3.** **`S3.book_membership: active → lost`** — S3 leaves the player's Book
+and is gone. (The Book's `caravan_membership` is unchanged — the Book itself still rides in the
+Caravan.) The death this campaign turn was not a die roll — it was a **decision**, made because a wagon
+had one bed and two broken bodies in it.
 
 ## Step 4 — march (the clock), then Battle-Start
 
@@ -108,13 +109,15 @@ not — and Battle-Start walked it back onto the table.**
 | Aftermath rolls are **`table`** PACKETs | 1d6 ± care → band → Effect | 01 + Slice 1 · 03_GRAMMAR |
 | Body: Injury (severe) ; Mind: Rattle | S1/S3 legs ; S2 rattle | 01 |
 | **Death** (permanent) | S3 lost | 01 + 02 |
-| Roster membership as a **Relationship** | `caravan_membership`, queried | 02 |
+| Personal roster membership (Relationship) | `book_membership` — S3 `active → lost` | 02 |
+| Expedition participation (Relationship) | `caravan_membership` — Book ↔ Caravan (unchanged) | 02 |
 | **Capacity — actually resolved** | 1 bed, 2 bed-cases → forced choice, S3 left | 02 |
 | The clock & `advance_rule` (heal-or-hurry) | March; S1 severe→Lame, Rattle persists | 03 |
 | **Battle-Start Procedure** (entrance boundary) | reads durable State, applies init effects | 00 + 03 |
 | History alters the next battle | S1 short of a charge, S2 opens Shaken, S3 gone | 03 |
 
-**No undefined rule was reached, and no new Object kind was invented.** "Campaign" is `battle`'s
+**No undefined rule was reached, and no new *root* Object category was required** (Book and Caravan are
+new **Entity kinds** inside the existing Object → Entity ontology). "Campaign" is `battle`'s
 objects at a longer **scope**, plus two owned boundary Procedures (**Aftermath** out, **Battle-Start**
 in), plus a containing Entity (the Caravan) and `caravan_membership` Relationships. Every conversion
 across the battle↔campaign line is owned. **The object model held at the top of the stack.**

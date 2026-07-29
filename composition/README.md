@@ -16,7 +16,7 @@ Figure and its Packets. The constructor below is a **build-order**, never solved
         PURPOSE  +  MEDIUM
                  ↓                          Role × Tool          ×  = locate the functional cell
           FUNCTIONAL FRAME
-                 ↓  Signature               ▷ Signature          ▷  = resolve that cell into a loop
+                 ↓  Signature               ▷ Signature          ▷  = specialize that cell into a loop
            DECISION LOOP
                  ↓  Tempo                    @ Tempo              @  = express that loop at a cadence
         PLAYABLE ARCHETYPE
@@ -29,33 +29,45 @@ ARCHETYPE = Tempo( Signature( Role × Tool ) )
 ```
 
 Evocative form: **`(Role × Tool) ▷ Signature @ Tempo = Archetype`**. The operators are not arithmetic —
-each has a different grammatical job (locate / resolve / express). Details in
+each has a different grammatical job (**locate / specialize / express**). Details in
 [02_ARCHETYPE.md](02_ARCHETYPE.md).
 
 ## The complete figure
 
-Archetype is only the *functional identity*. A whole figure stacks it with the rest, each layer owning
-its own concern:
+A figure is **authored** as one flat **Figure Definition** — it is *not* assembled from an
+"Archetype." The authored field groups, each owning its own concern:
 
 ```
-UNIT PROFILE
-    = CHASSIS          # the hardware: Move, Armour, Wounds, Nerve, base shape, Creature Type
-    + ARCHETYPE        # the function: Tempo(Signature(Role × Tool))
-    + TEMPERAMENT      # the fallback psychology (independent of function)
-    + DOCTRINE         # the current operating policy
-    + OVERLAYS         # decorators (keywords, kit, veterancy)
-    + FACTION KNOBS    # explicit configuration
+FIGURE DEFINITION
+    = CHASSIS FIELDS                    # the hardware: Move, Armour, Wounds, Nerve, base shape (Rank), Creature Type
+    + ROLE · TOOL · SIGNATURE · TEMPO   # the four authored composition fields
+    + TEMPERAMENT                       # the fallback psychology (independent of function)
+    + DEFAULT_DOCTRINE                  # the starting policy (a Figure field; current_doctrine is Instance)
+    + PACKET REFERENCES
+    + OVERLAYS · FACTION KNOBS          # explicit optional fields
 ```
+
+Then, **separately, Presentation renders** — it never contributes an authored ingredient:
+
+```
+PRESENTATION renders
+    the Frame view   from  Role × Tool
+    the Archetype    from  Role × Tool ▷ Signature @ Tempo
+    the whole card / physical package  from the Figure
+```
+
+(These are **field groups**, not *Layers* — `Layer` is reserved for Definition · Procedure · Instance ·
+Presentation.)
 
 The computational reading (the "small operating system" lens):
 
-| Layer | Is like |
+| Piece | Is like |
 |---|---|
 | Role × Tool | the **interface** |
 | Signature | the **implementation** |
 | Tempo | the **scheduler** |
 | Figure (primitives + packets) | the **executable truth** |
-| Archetype | the **rendered identity** — a Presentation view, *not* executable |
+| Archetype | the **rendered identity** — a Presentation view, *not* executable <!-- retired-lint: allow archetype-operative reason: row explicitly states Archetype is NOT executable --> |
 | Chassis | the **hardware** |
 | Temperament | **fallback psychology** |
 | Doctrine | **operating policy** |
@@ -73,7 +85,8 @@ the same architecture at a material resolution. (Physical is not a new layer; it
 Position, and containment made of plastic.)
 
 ## Status
-Ratified structure (William, 2026-07-29; [CON-0022]). The **Chassis / Archetype / Temperament**
-layers are specified here; **Doctrine · Overlays · Faction Knobs** are *named and bounded* but their
-full content is later work. Specific Frame/Archetype *names* are `⚠ PROVISIONAL` content, to be
-reconciled against the frozen `ARCHETYPES.md` and tuned in play.
+Ratified structure (William, 2026-07-29; **[CON-0023]**, which supersedes the layer-status framing of
+[CON-0022]). **Chassis · the four composition fields · Temperament** are specified here; **Doctrine ·
+Overlays · Faction Knobs** are *named and bounded* but their full content is later work. Specific
+Frame/Archetype *names* and FrameSpec sockets are `⚠ PROVISIONAL`, to be reconciled against the frozen
+`ARCHETYPES.md` and tuned in play.

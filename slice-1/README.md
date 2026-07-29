@@ -33,5 +33,5 @@ perceive Position → choose intent → spend Agency → invoke a PACKET
 
 ## Scope guards honored
 - **Square = 2 AP** (Ruling 2). Any exception is a named field, never prose (Kernel Law 15).
-- **Push** is the one displacement term (Ruling 12); "Shove" does not appear.
+- **Push** is the one displacement term (Ruling 12); "Shove" does not appear. <!-- retired-lint: allow shove reason: states Shove is retired in favor of Push -->
 - **SOUL** is never named in a rule, read, or given a value (protected).

@@ -28,7 +28,7 @@ Effect on a PACKET (see [Slice 1 · 03_GRAMMAR](../slice-1/03_GRAMMAR.md)). A fr
 
 **Nerve is psychic Armour.** It is the **tiered save** on the Mind channel — the *same shape* as
 Armour, applied to Morale. *[Ruling 1: Nerve is a tiered save rolled per incoming Morale point.
-There is no 3-dice Nerve test.]*
+There is no 3-dice Nerve test.]* <!-- retired-lint: allow nerve-check, nerve-3dice reason: states the retired 3-dice Nerve test to reject it -->
 
 ```
 NERVE  (Mind channel)   tiers:  None · L6+ · M5+ · H4+
@@ -42,7 +42,7 @@ track one state.
 
 The Mind track is a **staged track** with exactly one authorised in-battle recovery. Unsaved Morale
 steps it **down**; **only Rally** ([03_THE_GROUP.md](03_THE_GROUP.md)) steps it **up**. (It is not a
-"one-way ratchet" — Rally is the sanctioned way up; there is simply no *passive* recovery.)
+"one-way ratchet" — Rally is the sanctioned way up; there is simply no *passive* recovery.) <!-- retired-lint: allow one-way-ratchet reason: states it is NOT a one-way ratchet -->
 
 | State | Meaning | Effect |
 |---|---|---|

@@ -9,12 +9,12 @@ never a hidden sentence* ([Slice 1 · 01_PRIMITIVES, Law 15](../slice-1/01_PRIMI
 > **An addition or exception is a named, *visible component* — not something a player must remember.**
 
 ## What geometry can enforce
-- **Keyed edges per category** — Melee / Ranged / Hybrid / Resource / Reaction / Support packets carry distinct edge profiles; a card whose edge doesn't match a socket **cannot enter it.**
+- **Keyed edges** — packets carry distinct edge profiles, so a card whose edge doesn't match a socket **cannot enter it.** *(The exact keyed categories are ⚠ **PROVISIONAL / UNRESOLVED**. They must derive from real Kernel distinctions — Packet **Tool** is Melee/Ranged/Hybrid — and there is **no `Reaction` or `Support` Packet category** in the grammar; do not invent them.)* <!-- retired-lint: allow reaction-category reason: states there is NO Reaction/Support category -->
 - **Orientation notch** — a card can't be inserted backwards.
 - **Slot capacity** — a Frame has a fixed number of slots, so over-capacity builds are physically impossible.
 - **Windows** — only a compatible card exposes the correct fields through the Frame's mask.
 - **Colour + shape redundancy** — category is communicated twice (poka-yoke), never by hue alone.
-- **Explicit sockets for additions** — a Scar, item, Bond, or upgrade occupies a *real slot*, not buried prose. Persistent additions ([Slice 3](../slice-3/01_HARM_LIFECYCLE.md)) take physical space.
+- **Explicit sockets for additions** — an item, an upgrade, or the *physical marker* of a Scar/Bond occupies a *real slot*, not buried prose. (The Scar or Bond **itself** is durable **Figure State** ([Slice 3](../slice-3/01_HARM_LIFECYCLE.md)); the slot only holds its Presentation mirror.)
 
 ## It mirrors the FrameSpec — it doesn't replace it
 Keyed geometry is the **material Presentation of the FrameSpec's socket contract**
