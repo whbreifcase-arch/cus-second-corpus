@@ -1,17 +1,15 @@
-# CUS glossary — single source of truth for TERMS (the lexical layer).
+# CUS glossary — the TERM layer (lexical: a word is either live or retired).
 # columns: term <TAB> status <TAB> id <TAB> ref <TAB> ruling <TAB> note
-#   status = LIVE | RETIRED
-#   LIVE:    ref = canonical home doc (repo-relative) — the hyperlink target for the term.
+#   LIVE:    ref = canonical home doc (repo-relative) = the hyperlink target for the term.
 #   RETIRED: ref = the live term to use instead; id = the retired-lint allow-id.
-# Retired CLAIMS (relational assertions) live in _retired/registry.tsv, swept by _retired/sweep.py.
-# This file + glossary_lint.py govern terms and link integrity. No summary outranks its cited source.
+# Relations between terms live in model.tsv. Checked by check.py. No summary outranks its cited source.
 Object	LIVE	object	slice-1/02_WORLD.md		The root noun; everything is an Object on three axes (Ontology/Layer/Ownership).
 Figure	LIVE	figure	composition/03_UNIT_PROFILE.md	CON-0023	The authored unit definition; you author the Figure, Presentation renders the Archetype.
 Archetype	LIVE	archetype	composition/02_ARCHETYPE.md	CON-0023	The rendered identity label — a Presentation view, never authored/stored/resolved.
 FrameSpec	LIVE	framespec	composition/02_ARCHETYPE.md	CON-0023	Role x Tool socket schema; owns no fact.
 Frame	LIVE	frame	interface/01_FRAME.md	CON-0023	The physical face (FrameSpec + physical Frame); not a layer or root Object.
-Signature	LIVE	signature	composition/02_ARCHETYPE.md	CON-0023	Specializes the Frame (the > step); does not resolve it.
-Tempo	LIVE	tempo	composition/02_ARCHETYPE.md	CON-0022	Cadence of the decision loop (@), not movement speed.
+Signature	LIVE	signature	composition/02_ARCHETYPE.md	CON-0023	Specializes the Frame; does not resolve it.
+Tempo	LIVE	tempo	composition/02_ARCHETYPE.md	CON-0022	Cadence of the decision loop, not movement speed.
 Role	LIVE	role	composition/01_AXES.md		Pressure / Anchor / Utility.
 Tool	LIVE	tool	composition/01_AXES.md		Melee / Ranged / Hybrid.
 Packet	LIVE	packet	slice-1/03_GRAMMAR.md		The unit of action in the grammar (PACKET).
