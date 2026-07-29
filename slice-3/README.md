@@ -37,7 +37,7 @@ invented for "campaign"; a battle and a campaign are the same objects viewed at 
 ## Where this sits in the object model (Slice 1 · 02_WORLD)
 The real test of the slice: does "campaign" fit the three-axis ontology, or does it force a new kind of thing?
 - **Persistence is a temporal *scope* on State**, not a new Object. Every State fact already lived at `(Object × Layer)`; Slice 3 adds *when it resets*. Battle-scoped State (Wounds, the Mind track, Position, Guard) resets at battle end; **campaign/permanent** State (Injuries, Scars, the roster) survives.
-- The **Caravan** is a new **Entity** that *contains* figures between events (nesting, per 02_WORLD) — the same containment the Formation used, at a longer scope.
+- The **Caravan** (shared) is a new **Entity** that contains each player's **Book** (personal), which in turn carries the figures — the same nesting the Formation used, one scale up. **Containment is not ownership** ([CON-0023]); the physical form is in [../interface/04_BOOK_AND_CARAVAN.md](../interface/04_BOOK_AND_CARAVAN.md).
 - The **Aftermath** is a **Procedure** at the battle→campaign boundary; a **Scar** is durable **State**; the **clock** is the campaign temporal scope. Nothing new in kind.
 
 If "make a campaign" had required a parallel game, that would be the finding. It does not — it required naming *scope*.

@@ -5,10 +5,12 @@ The definition-layer. Slices 1–3 built the **engine** (act → fight → break
 authoring model that turns the four axes, named in [Slice 1 · 02_WORLD](../slice-1/02_WORLD.md), into a
 composable figure.
 
-## The one idea: Archetype is compiled, not chosen
+## The one idea: the Figure is authored; the Archetype is rendered
 
-An **Archetype** is not a thing you author. It is the recognizable identity the system **derives** from
-a few authoritative primitives, through a pipeline:
+An **Archetype** is not a thing you author, and not an object the engine resolves. You author explicit
+primitives + Packet references — that is the whole truth of the Figure. The **Archetype is a
+Presentation *view*** the system **renders** from that truth; there is no Archetype object between the
+Figure and its Packets. The constructor below is a **build-order**, never solved backward from packets:
 
 ```
         PURPOSE  +  MEDIUM
@@ -52,7 +54,8 @@ The computational reading (the "small operating system" lens):
 | Role × Tool | the **interface** |
 | Signature | the **implementation** |
 | Tempo | the **scheduler** |
-| Archetype | the **executable gameplay identity** |
+| Figure (primitives + packets) | the **executable truth** |
+| Archetype | the **rendered identity** — a Presentation view, *not* executable |
 | Chassis | the **hardware** |
 | Temperament | **fallback psychology** |
 | Doctrine | **operating policy** |
@@ -61,8 +64,13 @@ The computational reading (the "small operating system" lens):
 
 ## Docs
 - **[01_AXES.md](01_AXES.md)** — the four axes with their *values* (Role · Tool · Tempo · Temperament) + the Rank & Creature-Type classifications. Fleshes out what Slice 1 only named.
-- **[02_ARCHETYPE.md](02_ARCHETYPE.md)** — the compilation pipeline: Frame → Signature → Tempo → Archetype, derived not authored.
-- **[03_UNIT_PROFILE.md](03_UNIT_PROFILE.md)** — the full stack and the authoritative figure Definition.
+- **[02_ARCHETYPE.md](02_ARCHETYPE.md)** — the constructor: `Role × Tool` (a **FrameSpec** socket) ▷ Signature @ Tempo → Archetype (rendered). Authored, never inferred.
+- **[03_UNIT_PROFILE.md](03_UNIT_PROFILE.md)** — the full stack and the flat, authoritative figure Definition.
+
+The **FrameSpec** here is the *digital* authoring schema; its *physical* embodiment (housing, keyed
+slots), two-sided Packet cards, and the Book ⁄ Caravan objects live in **[../interface/](../interface/README.md)** —
+the same architecture at a material resolution. (Physical is not a new layer; it is Presentation,
+Position, and containment made of plastic.)
 
 ## Status
 Ratified structure (William, 2026-07-29; [CON-0022]). The **Chassis / Archetype / Temperament**

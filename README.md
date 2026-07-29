@@ -8,7 +8,8 @@ behavior*.
 > - **[Vertical Slice 1](slice-1/README.md)** — the smallest closed loop: one figure acts, two oppose, a melee exchange with a Counter; the four primitives, the **object model** (Object · three axes), the PACKET grammar, the Body channel.
 > - **[Vertical Slice 2](slice-2/README.md)** — a group acts and can break: the **Mind channel** (Morale · Nerve · Shaken/Broken), the **Circle**, the **Formation**, **Rout & Rally**, and the foundation **activation scheduler**.
 > - **[Vertical Slice 3](slice-3/README.md)** — a battle makes history: **Persistence** as temporal *scope* on State, the **Aftermath** (Wounds → Injury → Scar, the Morale check → Mind Scar, death), the **Caravan**, and the **campaign loop**.
-> - **[Composition layer](composition/README.md)** — how you *author* a figure: the four axes' values, and the **Archetype pipeline** `Tempo(Signature(Role × Tool))` — derived, not authored. (Definition-layer, not a gameplay slice.)
+> - **[Composition layer](composition/README.md)** — how you *author* a figure: the four axes' values, and the **Archetype constructor** `Tempo(Signature(Role × Tool))`. **The Figure is authored; the Archetype is rendered.** (Definition-layer, not a gameplay slice.)
+> - **[Interface layer](interface/README.md)** — the *physical* face: FrameSpec ⁄ physical Frame, two-sided Packet cards (both faces Presentation), the **Book** (personal) ⁄ **Caravan** (shared). Physical is Presentation + Position + containment — not a new layer.
 > - **Slice 4** (next) — history deepens: recruitment, the map & travel, the Story module's Bonds accruing like Scars.
 >
 > The First Corpus's v0.6 files (A–N and the old HTML/Lua) are **not** carried in this tree — they

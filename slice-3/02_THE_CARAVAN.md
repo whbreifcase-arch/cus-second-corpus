@@ -12,31 +12,34 @@ The Caravan is a new **Entity** ([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)) 
 containment is the *same nesting rule*, at a longer temporal scope:
 
 - a **Formation** contains Figures for the length of a **battle**;
-- a **Caravan** contains Figures for the length of a **campaign**.
+- a **Caravan** contains each player's **Book** for the length of a **campaign** — and the Books carry the Figures.
 
-A figure in the Caravan is still a complete Entity with its own durable record (its Injuries, Scars,
-name). The Caravan adds carrying and coordination, not control.
+A Figure remains a complete Entity with its own durable record (Injuries, Scars, name), and so does a
+Book; the Caravan adds carrying and coordination, not control. **Containment is not ownership** at
+either step.
 
 > This is the Slice 3 ontology payoff: a Caravan uses the **same containment *pattern*** as a Formation
 > — nesting Entities — but its **membership persists at `campaign` scope** rather than `battle`. (Scope
 > is a property of the membership State, not of the Entity's taxonomic kind: a Caravan and a Formation
 > are different Entity kinds that happen to share a pattern.)
 
-## What the Caravan holds
+## Two scales of membership — the Book and the Caravan
 
-Roster **membership** is not a list the Caravan owns — it is a **Relationship**
-([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)), the very object Slice 1 built for a fact that lives
-*between* two Entities:
+Membership is a **Relationship** ([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)) — never a list an Entity
+owns — but it runs at **two scales**, because a warband is a player's *personal* Figures travelling in
+a *shared* expedition:
 
 ```
-Relationship: caravan_membership
-  from: Caravan A   to: Figure S1   scope: campaign   state: active
+Book    ──book_membership───────▶ Figure     (a player's own Figures)
+Caravan ──caravan_membership────▶ Book        (the shared expedition carries the Books)
+Caravan ──(direct)──────────────▶ communal    (hirelings, pack animals, NPC escorts — only if genuinely shared)
 ```
 
-The Caravan **queries** its members through these edges; it keeps no second authoritative copy (that
-would be two owners for one fact). Each figure's *condition* — its Injuries, Scars, Rattle — remains
-durable **State on that figure** (per [00_PERSISTENCE.md](00_PERSISTENCE.md)). Between battles a member
-sits in one of a few conditions:
+- A **Book** is a player's personal persistence Entity (physical form: [../interface/04_BOOK_AND_CARAVAN.md](../interface/04_BOOK_AND_CARAVAN.md)). It owns **only Book-specific** facts — personal resources, capacity, selections, Book-level state — and relates to its Figures by `book_membership`. **It does not own their Injuries or Scars.**
+- Each **Figure** still owns its own durable condition — name, Injuries, Scars, Rattle, advancement — as **State on that figure** ([00_PERSISTENCE.md](00_PERSISTENCE.md)). Unchanged.
+- The **Caravan** relates to the **Books**, not directly to most Figures, and **queries travelling Figures transitively through the Books.** Direct `Caravan → Figure` is reserved for genuinely **communal** assets that belong to no one player. The Caravan keeps **no roster copy** — no second authoritative owner, exactly as before.
+
+Between battles a member Figure sits in one of a few conditions:
 
 - **Hale** — uninjured, ready.
 - **Injured** — carrying a `campaign` Injury; healing or worsening on the clock.

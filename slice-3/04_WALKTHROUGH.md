@@ -10,7 +10,7 @@ illustrative; the point is the loop **closes** and history is *felt*.
 As figures fell and broke, the Body and Mind procedures wrote **battle-scoped history flags** (not
 queryable Transitions — the flags are the stored proof, [Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)):
 
-| Warband (roster) | End of battle 1 | Flag written |
+| Warband — the player's **Book** | End of battle 1 | Flag written |
 |---|---|---|
 | **C** (Circle leader) | Steady, unhurt | — |
 | **S1** (Square) | Knocked Out | `was_felled` |
@@ -44,10 +44,11 @@ them.** What the Aftermath *promoted* does not wipe:
 | S2 | *Rattle* | `campaign` · clears on a calm turn |
 | S3 | Injury: *severe leg* | `campaign` · (but — see Step 3) |
 
-## Step 3 — load the Caravan, and the choice it forces
+## Step 3 — the Book rides in the Caravan, and capacity forces a choice
 
-Membership is a `caravan_membership` **Relationship** per figure ([02_THE_CARAVAN.md](02_THE_CARAVAN.md));
-the Caravan queries it, and now capacity bites:
+The Figures are the player's, held by `book_membership`; the **Book** rides in the shared Caravan
+(`caravan_membership`, [02_THE_CARAVAN.md](02_THE_CARAVAN.md)). The Caravan's **shared bed slots** now
+bite:
 
 - **Walkers:** C (Hale) and S2 (Rattled) walk — walking slots, no problem.
 - **Bed-cases:** **S1 and S3 both need a bed** — and the Caravan has **one bed slot.**

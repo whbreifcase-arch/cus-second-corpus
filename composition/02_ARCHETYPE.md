@@ -1,7 +1,8 @@
 # Composition · The Archetype Pipeline
 
-An **Archetype** is *function made playable through identity and cadence.* It is **compiled**, not
-authored, from four authoritative primitives:
+An **Archetype** is *function made playable through identity and cadence* — and it is **rendered, not
+authored.** The *Figure* is authored (four primitives + Chassis + Packets); the Archetype is the
+**Presentation view** the constructor renders from them:
 
 ```
 ARCHETYPE = Tempo( Signature( Role × Tool ) )
@@ -22,11 +23,16 @@ PURPOSE + MEDIUM  →  FUNCTIONAL FRAME  →(Signature)→  DECISION LOOP  →(T
 
 ---
 
-## Stage 1 · Frame = Role × Tool  (locate the cell)
+## Stage 1 · FrameSpec = Role × Tool  (locate the socket)
 
-Crossing the two functional axes gives a **Frame** — a nine-cell space of *functional sockets.* A
-Frame owns **Role, Tool, and basic packet expectations** — **not** body, equipment, or personality
-(those are Chassis / Overlays / Temperament).
+`Role × Tool` locates a **FrameSpec** — a *socket contract*, **not** a taxonomic parent that "contains"
+archetypes. It is the **build-a-soldier authoring schema** for that functional cell: which sockets a
+Figure there must fill and may fill. It owns **Role, Tool, and packet expectations** — **not** body,
+equipment, or personality (those are Chassis / Overlays / Temperament). A FrameSpec is **not a root
+Object** beside Entity/Packet/Relationship — it is authoring/interface tooling, and its *physical*
+embodiment (a housing with keyed slots) lives in [../interface/01_FRAME.md](../interface/01_FRAME.md).
+
+The nine cells give recognizable *names* for the socket you are building in:
 
 | Role \ Tool | **Melee** | **Ranged** | **Hybrid** |
 |---|---|---|---|
@@ -34,9 +40,9 @@ Frame owns **Role, Tool, and basic packet expectations** — **not** body, equip
 | **Anchor** (prevents) | Guard | Gunner | Warden |
 | **Utility** (changes) | Disruptor | Controller | Operator |
 
-*(Frame names ⚠ PROVISIONAL — reconcile against the frozen `ARCHETYPES.md`.)* A Frame is still
-**abstract**: `Anchor × Ranged` (Gunner) says *"denies space through ranged interaction"* — but not yet
-*what the player repeatedly does.*
+*(Names ⚠ PROVISIONAL — reconcile against the frozen `ARCHETYPES.md`.)* A FrameSpec is **abstract**:
+`Anchor × Ranged` (a Gunner socket) says *"denies space through ranged interaction"* and lists sockets
+to fill — but not yet *what the player repeatedly does.* That is the author's next choice: the Signature.
 
 ## Stage 2 · Signature resolves the Frame  (▷)
 
@@ -74,24 +80,37 @@ Archetype.
 
 ---
 
-## Archetype is derived, not authored
+## Authored, then rendered — never inferred
 
-The primitive fields are **authoritative**; the Archetype label is what the composer **computes and
-presents to humans.** A figure Definition stores the inputs:
+The primitive fields are **authored and authoritative**; the Archetype label is what **Presentation
+renders** from them for humans. A Figure stores the inputs (flat — [03_UNIT_PROFILE](03_UNIT_PROFILE.md)):
 
 ```json
 { "role": "Anchor", "tool": "Ranged", "signature": "Suppress", "tempo": "Slow" }
 ```
 
-…and the composer resolves the recognizable name (here: a *Pinning Gunner* / *Machine-Gun Nest*). This
-makes contradictory data **impossible to write** — you can no longer author:
+…and Presentation renders the recognizable name (here: a *Pinning Gunner* / *Machine-Gun Nest*).
+`archetype` is **never a stored field**, so contradictory data is not merely wrong — it is
+**unrepresentable:**
 
 ```json
 { "role": "Utility", "tool": "Melee", "signature": "Heal", "tempo": "Fast", "archetype": "Sniper" }
 ```
 
-because "Sniper" is not a field you set — it is the *output* of the pipeline, and that input compiles to
-a fast melee medic, not a sniper.
+You cannot set `archetype`; and those inputs render a *fast melee medic*, not a sniper.
+
+**The pipeline runs one way only — construction, not inference. Each role is fixed:**
+
+```
+Author       constructs :  Role · Tool · Signature · Tempo      (explicit, authoritative)
+FrameSpec    validates  :  socket legality · capacity · packet/Tool compatibility · references exist
+Presentation renders    :  the Archetype package (name · card · silhouette)
+Engine       resolves   :  Packets   (never an "Archetype")
+```
+
+Nothing runs backward. The system **never infers** Role, Tool, Signature, Tempo, or Archetype from a
+figure's packets, effects, or costs. Validation confirms a construction is *legal*; it never *authors
+identity.*
 
 ## The hidden-Tempo leak this fixes
 
