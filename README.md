@@ -3,11 +3,11 @@
 **The rebuilt canonical architecture and implementation.** Authoritative for *current system
 behavior*.
 
-> **Status: RESERVED — not yet built.** This repository is a fork of
-> [`cus-kernel-rebuild`](https://github.com/whbreifcase-arch/cus-kernel-rebuild) (the frozen
-> **First Corpus**) and currently holds only its inherited A–N history as lineage. **None of the
-> inherited files are authoritative here yet.** The Second Corpus is rebuilt deliberately, in
-> dependency order, from the master inventories — not by copying the First Corpus forward.
+> **Status: REBUILD STARTED.** The first rebuilt content is **[Vertical Slice 1](slice-1/README.md)**
+> (on branch `vertical-slice-1`) — the smallest closed loop: one figure acts, two figures oppose,
+> a melee exchange with a Counter. Built from Architecture Zero (in `cus-concordance`) and the 13
+> signed rulings. The inherited A–N files are lineage only and are **not** authoritative here; the
+> Second Corpus is rebuilt deliberately in dependency order, not by copying the First Corpus forward.
 
 ## Where things stand
 
