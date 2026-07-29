@@ -8,7 +8,7 @@ composable figure.
 ## The one idea: the Figure is authored; the Archetype is rendered
 
 An **Archetype** is not a thing you author, and not an object the engine resolves. You author explicit
-primitives + Packet references — that is the whole truth of the Figure. The **Archetype is a
+fields + Packet references — that is the whole truth of the Figure. The **Archetype is a
 Presentation *view*** the system **renders** from that truth; there is no Archetype object between the
 Figure and its Packets. The constructor below is a **build-order**, never solved backward from packets:
 
@@ -35,7 +35,7 @@ each has a different grammatical job (**locate / specialize / express**). Detail
 ## The complete figure
 
 A figure is **authored** as one flat **Figure Definition** — it is *not* assembled from an
-"Archetype." The authored field groups, each owning its own concern:
+"Archetype." The authored field groups, each a distinct concern:
 
 ```
 FIGURE DEFINITION
@@ -66,7 +66,7 @@ The computational reading (the "small operating system" lens):
 | Role × Tool | the **interface** |
 | Signature | the **implementation** |
 | Tempo | the **scheduler** |
-| Figure (primitives + packets) | the **executable truth** |
+| Figure (fields + packets) | the **executable truth** |
 | Archetype | the **rendered identity** — a Presentation view, *not* executable <!-- retired-lint: allow archetype-operative reason: row explicitly states Archetype is NOT executable --> |
 | Chassis | the **hardware** |
 | Temperament | **fallback psychology** |

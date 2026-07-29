@@ -9,15 +9,28 @@ The canonical vocabulary and how it relates. Two kinds of drift are guarded auto
 | Term | Meaning | Ruling |
 |---|---|---|
 | [Object](slice-1/02_WORLD.md) | The root noun; everything is an Object on three axes (Ontology/Layer/Ownership). | — |
-| [Figure](composition/03_UNIT_PROFILE.md) | The authored unit definition; you author the Figure, Presentation renders the Archetype. | CON-0023 |
+| [Entity](slice-1/02_WORLD.md) | An Ontology kind of Object — a unit that acts and persists; holds its facts across the four Layers. | — |
+| [Relationship](slice-1/02_WORLD.md) | A first-class Object holding facts *between* Entities (an engaged edge, a grudge's heat); its runtime truth lives in its Instance facet. | — |
+| [Definition](slice-1/02_WORLD.md) | A Layer: the static, shared, referenced description (the class/schema). Holds no runtime state. | — |
+| [Instance](slice-1/02_WORLD.md) | A Layer: what is true right now (Position, wounds_remaining, fired triggers). Runtime State lives only here. | — |
+| [Procedure](slice-1/02_WORLD.md) | A Layer: the one owned method that resolves a Statement. | — |
+| [Presentation](slice-1/02_WORLD.md) | A Layer: what the player sees and touches (model, card, base, tokens). A mirror, never a source. | — |
+| [State](slice-1/02_WORLD.md) | What is true now, owned at exactly one Instance cell. | — |
+| [Transition](slice-1/02_WORLD.md) | The named moment a State changes; emitted by the Procedure that owns that State. | — |
+| [Trigger](slice-1/02_WORLD.md) | A clause on a Definition that watches for a named Transition (a Written Trigger). | — |
+| [Invocation](slice-1/02_WORLD.md) | A watched Transition firing a PACKET through a Trigger. | — |
+| [Packet](slice-1/03_GRAMMAR.md) | The unit of action in the grammar (PACKET). | — |
+| [Grade](slice-1/03_GRAMMAR.md) | How well a roll succeeded — the graded outcome (the Success Grade; replaces the retired Ladder/Rungs). | First-Corpus D |
+| [Effect](slice-1/03_GRAMMAR.md) | What resolving a Grade changes — a Wound, a Push, Guard. Writes State or Position, nothing else. | — |
+| [Push](slice-1/04_COMBAT.md) | The one displacement Effect (replaces the retired 'Shove'). | CON-0012 |
+| [Figure](composition/03_UNIT_PROFILE.md) | The Entity for a unit, existing across all four Layers: shared authored capability is its Figure Definition; the specific persistent person (wounds, history, State) is its Figure Instance. You author the Definition; Presentation renders the Archetype. | CON-0023 |
 | [Archetype](composition/02_ARCHETYPE.md) | The rendered identity label — a Presentation view, never authored/stored/resolved. | CON-0023 |
-| [FrameSpec](composition/02_ARCHETYPE.md) | Role x Tool socket schema; owns no fact. | CON-0023 |
-| [Frame](interface/01_FRAME.md) | The physical face (FrameSpec + physical Frame); not a layer or root Object. | CON-0023 |
-| [Signature](composition/02_ARCHETYPE.md) | Specializes the Frame; does not resolve it. | CON-0023 |
+| [FrameSpec](composition/02_ARCHETYPE.md) | The Role x Tool socket schema — the *functional* frame Signature specializes. Owns no fact. | CON-0023 |
+| [Frame](interface/01_FRAME.md) | The *physical* face — FrameSpec plus the physical Frame housing. Not a layer or root Object. (The functional frame Signature specializes is the Role x Tool cell — see FrameSpec.) | CON-0023 |
+| [Signature](composition/02_ARCHETYPE.md) | Specializes the functional frame; does not resolve it. | CON-0023 |
 | [Tempo](composition/02_ARCHETYPE.md) | Cadence of the decision loop, not movement speed. | CON-0022 |
 | [Role](composition/01_AXES.md) | Pressure / Anchor / Utility. | — |
 | [Tool](composition/01_AXES.md) | Melee / Ranged / Hybrid. | — |
-| [Packet](slice-1/03_GRAMMAR.md) | The unit of action in the grammar (PACKET). | — |
 | [Morale](slice-2/01_MIND_CHANNEL.md) | The Mind channel's incoming pressure. | — |
 | [Nerve](slice-2/01_MIND_CHANNEL.md) | A tiered SAVE rolled per incoming Morale point. | CON-0001;CON-0011 |
 | [Circle](slice-2/02_THE_CIRCLE.md) | Breaks like a Square via the Mind channel; differs by +Agency / faceless / no formation. | CON-0010 |
@@ -26,23 +39,22 @@ The canonical vocabulary and how it relates. Two kinds of drift are guarded auto
 | [Persistence](slice-3/00_PERSISTENCE.md) | Temporal scope on State. | — |
 | [Aftermath](slice-3/00_PERSISTENCE.md) | The boundary Procedure that records durable State. | — |
 | [Scar](slice-3/01_HARM_LIFECYCLE.md) | Figure State (Wounds->Injury->Scar; Mind Scar); not an Overlay. | CON-0023 |
-| [Book](interface/04_BOOK_AND_CARAVAN.md) | Personal container; membership Relationship Book->Figure. | — |
+| [Book](interface/04_BOOK_AND_CARAVAN.md) | Personal container; membership is a Relationship, Book->Figure Instance. | — |
 | [Caravan](interface/04_BOOK_AND_CARAVAN.md) | Shared container; carries Books, not the roster directly. | CON-0023 |
-| [Push](slice-1/04_COMBAT.md) | The one displacement Effect (replaces the retired 'Shove'). | CON-0012 |
 
 ## How the vocabulary relates (canonical)
 
 | Subject | relation | Object | Ruling |
 |---|---|---|---|
-| Author | authors | Figure | CON-0023 |
+| Author | authors | Figure Definition | CON-0023 |
 | Presentation | renders | Archetype | CON-0023 |
 | FrameSpec | socketsFrom | Role x Tool | CON-0023 |
-| Signature | specializes | Frame | CON-0023 |
+| Signature | specializes | FrameSpec (functional frame) | CON-0023 |
 | Tempo | paces | Figure | CON-0022 |
-| Figure | owns | role/tool | CON-0023 |
+| Figure Definition | owns | role/tool | CON-0023 |
 | Caravan | carries | Book | CON-0023 |
-| Book | contains | Figure | CON-0023 |
-| Scar | isStateOf | Figure | CON-0023 |
+| Book | hasMember | Figure Instance | CON-0023 |
+| Scar | isStateOf | Figure Instance | CON-0023 |
 | Nerve | savesAgainst | Morale | CON-0001;CON-0011 |
 | AP | scalesWith | Rank | CON-0002 |
 | Packet | hasTool | Melee/Ranged/Hybrid | CON-0023 |
@@ -54,9 +66,9 @@ The canonical vocabulary and how it relates. Two kinds of drift are guarded auto
 | Retired | Use instead | Ruling | id |
 |---|---|---|---|
 | Shove | Push | CON-0012 | `shove` |
-| Ladder | Success Grade | First-Corpus D | `grade-ladder` |
-| Rungs | Success Grade | First-Corpus D | `grade-ladder` |
-| Outcome Track | Success Grade | First-Corpus D | `grade-ladder` |
+| Ladder | Grade | First-Corpus D | `grade-ladder` |
+| Rungs | Grade | First-Corpus D | `grade-ladder` |
+| Outcome Track | Grade | First-Corpus D | `grade-ladder` |
 | Nerve test | Morale check / tiered Nerve save | CON-0001;CON-0011 | `nerve-check` |
 | Nerve roll | Morale check / tiered Nerve save | CON-0001;CON-0011 | `nerve-check` |
 | Nerve check | Morale check / tiered Nerve save | CON-0001;CON-0011 | `nerve-check` |

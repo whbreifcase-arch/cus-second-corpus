@@ -23,7 +23,7 @@ sentence is wrong. So the two are stored differently.
 
 | File | Holds | In plain terms |
 |---|---|---|
-| **`glossary.tsv`** | the **words** | every real term + where it's defined, and every dead word + what to say instead |
+| **`glossary.tsv`** | the **words** | the protected vocabulary + where each term is defined, and every retired word + what to say instead |
 | **`model.tsv`** | the **relationships** | short "A relates-to B" statements: the true ones, and the retired ones |
 | **`check.py`** | the **guard** | one command that reads both files and checks the docs |
 
@@ -75,7 +75,11 @@ tables (e.g. `shove`, `frame-hierarchy`).
 
 This folder **indexes**; it does not **rule**. Every row cites a Concordance
 ruling (the `CON-####` codes), and where a row and its ruling ever disagree, the
-ruling wins. The register mechanism itself is ratified by **CON-0024**.
+ruling wins. The register *mechanism* was ratified under **CON-0024** for the
+earlier `_retired/` tooling; this consolidated `_model/` form (glossary +
+relation model + one checker) still needs its own ruling — **proposed as
+CON-0025, pending in the Concordance**. Until that lands the mechanism is
+provisional; the substantive term and claim rulings it cites are unaffected.
 
 > The long-term direction (noted here so it isn't lost): the retired *claims*
 > still carry a regex to catch them in prose. The deeper version lifts the

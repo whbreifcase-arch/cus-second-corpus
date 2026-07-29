@@ -131,4 +131,4 @@ New:  Role Pressure · Tool Ranged · Frame Shooter · Signature Pierce · Tempo
 Now **Pierce** means *how the attack defeats protection* and **Slow** means *how often, and with what
 commitment, the loop fires* — two different knobs, each its own field, no hidden state.
 
-*Next: [03_UNIT_PROFILE.md](03_UNIT_PROFILE.md) — the Archetype stacked into a whole figure.*
+*Next: [03_UNIT_PROFILE.md](03_UNIT_PROFILE.md) — the flat Figure Definition (the Archetype is rendered from it, not stacked into it).*

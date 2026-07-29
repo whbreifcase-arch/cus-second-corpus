@@ -4,15 +4,15 @@
 #        | forbidden  (a retired claim; pattern = Python regex that detects it in prose)
 # This is the 'machine language' for how terms relate. Forbidden rows drive the prose sweep;
 # canonical rows say what IS true. Every row cites a ruling. Checked by check.py.
-rel-figure-authored	canonical	Author	authors	Figure	CON-0023		You author the Figure; the authored fields are authoritative.
+rel-figure-authored	canonical	Author	authors	Figure Definition	CON-0023		You author the Figure Definition; the authored fields are authoritative.
 rel-archetype-rendered	canonical	Presentation	renders	Archetype	CON-0023		The Archetype is rendered from the Figure; never authored/stored/resolved.
 rel-framespec-socket	canonical	FrameSpec	socketsFrom	Role x Tool	CON-0023		FrameSpec = Role x Tool, a socket schema that owns no fact.
-rel-signature-spec	canonical	Signature	specializes	Frame	CON-0023		Signature specializes the Frame; it does not resolve it.
+rel-signature-spec	canonical	Signature	specializes	FrameSpec (functional frame)	CON-0023		Signature specializes the functional frame — the Role x Tool / FrameSpec cell — into a decision loop; not the physical Frame.
 rel-tempo-paces	canonical	Tempo	paces	Figure	CON-0022		Tempo is the cadence of the decision loop, not movement.
-rel-figure-owns	canonical	Figure	owns	role/tool	CON-0023		The Figure Definition owns role/tool; FrameSpec owns nothing.
-rel-caravan-carries	canonical	Caravan	carries	Book	CON-0023		The Caravan carries Books.
-rel-book-membership	canonical	Book	contains	Figure	CON-0023		Book->Figure is a membership Relationship (as is Caravan->Book).
-rel-scar-state	canonical	Scar	isStateOf	Figure	CON-0023		Scar is Figure State (Wounds->Injury->Scar; Mind Scar), not an Overlay.
+rel-figure-owns	canonical	Figure Definition	owns	role/tool	CON-0023		The Figure Definition cell owns role/tool; FrameSpec owns nothing.
+rel-caravan-carries	canonical	Caravan	carries	Book	CON-0023		The Caravan carries Books; membership is a Relationship, not a stored roster.
+rel-book-membership	canonical	Book	hasMember	Figure Instance	CON-0023		Book->Figure is a membership Relationship — an edge to the individual Figure Instance, not a stored roster. Neither Book nor Caravan owns a roster list.
+rel-scar-state	canonical	Scar	isStateOf	Figure Instance	CON-0023		Scar is Figure Instance State (Wounds->Injury->Scar; Mind Scar), not an Overlay.
 rel-nerve-save	canonical	Nerve	savesAgainst	Morale	CON-0001;CON-0011		Nerve is a tiered save rolled per incoming Morale point.
 rel-ap-rank	canonical	AP	scalesWith	Rank	CON-0002		AP is by Rank — Square 2, Circle 3.
 rel-packet-tool	canonical	Packet	hasTool	Melee/Ranged/Hybrid	CON-0023		Packet Tools are Melee/Ranged/Hybrid (no Reaction/Support category).
