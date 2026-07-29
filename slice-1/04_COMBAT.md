@@ -96,4 +96,4 @@ Whether a felling Effect stops at Knocked Out or goes to Dead is a field on the 
 default: a normal strike that reduces a figure to 0 leaves it **Knocked Out**; a strike on a downed
 figure kills).
 
-*Next: [04_WALKTHROUGH.md](04_WALKTHROUGH.md) — the whole thing, played out.*
+*Next: [05_WALKTHROUGH.md](05_WALKTHROUGH.md) — the whole thing, played out.*

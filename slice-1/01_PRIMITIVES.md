@@ -4,7 +4,8 @@ The bottom of the stack (L0–L2). Nothing above may contradict this file.
 
 ## The four primitives
 
-The Kernel reads and writes exactly four things. Everything else reduces to them.
+The operative kernel reads and writes **exactly four things — no more.** Everything else reduces
+to them.
 
 | Primitive | Kind | One line |
 |---|---|---|
@@ -16,16 +17,15 @@ The Kernel reads and writes exactly four things. Everything else reduces to them
 **Position and Force are substrates** — everything the Kernel touches ultimately reads or writes
 one of them. **State and Resource are carriers** — how a substrate is stored and spent.
 
-> **SOUL — reserved.** A fifth primitive exists in name only: **SOUL**, a formal, permanently
-> blank, non-numerical reserved primitive. It is never named in a rule, never called, never
-> triggered, never read, and its state is never changed. It is not counted among the four
-> operative primitives, because it is never instantiated. Slice 1 touches it nowhere. *Do not
-> define, invoke, or alter it under any circumstances.*
+> These four are the whole operative ontology. A **reserved constitutional space** exists
+> *outside* the executable kernel — referenced by nothing in it, instantiated never — see
+> [Appendix Ω · Reserved Constitutional Space](APPENDIX_OMEGA_RESERVED.md). Slice 1 touches it
+> nowhere.
 
 ## Position (substrate)
 
 Position is physical and relational. In Slice 1 it is the location and facing of a figure's
-**base** on the table (see [03_COMBAT.md](03_COMBAT.md) for how the base carries it).
+**base** on the table (see [04_COMBAT.md](04_COMBAT.md) for how the base carries it).
 
 - **Only `MOVE` writes Position directly.** One owned procedure — the Push — also writes it, as a consequence of movement.
 - Position is the **cap** on what a figure can reach, strike, or answer. Where a rule wants to limit a figure, it denies it the *geometry*, not a budget.
@@ -40,7 +40,7 @@ BODY   damage = Wounds     save = Armour     terminal:  Standing → Knocked Out
 ```
 
 - **Wounds are a number, not a track** — the punishment a figure absorbs before it goes down (`wounds_remaining`). At 0 the figure is **Knocked Out**; struck again while down, it is **Dead**.
-- The Mind channel (Morale / Nerve) and SOUL are **out of scope** for Slice 1.
+- The Mind channel (Morale / Nerve) is **out of scope** for Slice 1.
 
 ## Resource (carrier)
 
@@ -61,16 +61,11 @@ A Resource is a limited quantity spent to produce change, typed by replenishment
 - There is **no second pool** for acting on someone else's activation. Out-of-turn answers cost nothing to resolve — they are limited by Position, authoring, and death, never by a budget.
 - Any deviation from 2 AP exists **only as a named, owned field** a tool can read — never as a sentence buried in prose. *[Kernel Law 15]*
 
-## The Instance — where runtime state lives
-
-Three of the four information layers appear in Slice 1:
-
-- **Definition** — static, referenced: a figure profile, a PACKET, the Base spec. Holds **no runtime state**.
-- **Procedure** — the owned method that resolves a Statement (movement, the strike, the Counter).
-- **Instance** — what is true right now: current Position, `wounds_remaining`, an armed WAIT, triggers already fired. **Runtime state lives only here.**
-
-(The fourth layer, Presentation, is the physical table — the model, the base, tokens beside a
-figure. It *translates* the Kernel and never forks a mechanic.)
+> **Where these live.** A primitive is a *substance*; the *containers* it lives in — the Entity,
+> the four layers (Definition · Procedure · Instance · Presentation), ownership, and reference —
+> are the object model, defined next in [02_WORLD.md](02_WORLD.md). Every live value in Slice 1
+> (current Position, `wounds_remaining`, an armed WAIT) is runtime state, and runtime state lives
+> only on the **Instance**.
 
 ## The binding laws (the ones Slice 1 relies on)
 
@@ -80,4 +75,4 @@ figure. It *translates* the Kernel and never forks a mechanic.)
 4. **Primitives are atomic; composites reduce.** Every mechanic reduces to Position / Force / State / Resource / a relationship between agents, with no unexplained remainder.
 5. **An exception is a named field, never prose.** A deviation from a default may exist only as a named, owned field a tool can read. If it can't be a field, it's a missing layer — not a special sentence.
 
-*Next: [02_GRAMMAR.md](02_GRAMMAR.md) — how a capability is defined and resolved.*
+*Next: [02_WORLD.md](02_WORLD.md) — the object model: what kinds of things exist, and what owns state.*

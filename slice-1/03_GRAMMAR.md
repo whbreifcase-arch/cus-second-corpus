@@ -8,7 +8,7 @@ A **PACKET** is a stateless, named, referenced definition of a resolvable effect
 data object. It:
 
 - has a **neutral ID** (the ID never encodes what kind of packet it is);
-- holds **no runtime state** (results live in the Instance);
+- holds **no runtime state** (it is a Definition; results live in the Instance — see [02_WORLD.md](02_WORLD.md));
 - is **defined once, referenced everywhere** — never copied onto each card;
 - carries **only** what its resolution needs;
 - does **not** encode whether it is "good" or "bad" — the Kernel carries no alignment tag.
@@ -48,7 +48,7 @@ The owning module decides which fields its packets require. For Slice 1's Combat
 Every constraint is a **named field** (`not_in_contact`, `provokes`, `los`, `path`, `range`) —
 never prose. A bullet is `los:true`; a lobbed grenade is `los:false, path:true`. Slice 1 melee
 uses `not_in_contact:false` (must be in base contact) and `provokes:true` (this strike may draw a
-Counter — see [03_COMBAT.md](03_COMBAT.md)).
+Counter — see [04_COMBAT.md](04_COMBAT.md)).
 
 ## Resolution — Success → Grade → Effect
 
@@ -98,4 +98,4 @@ The player has **exactly three verbs**, forever. Everything else is an alias tha
 The engine adds two more invocations (Written Trigger, Owned Procedure) that fire packets without a
 verb — but **the player still has only three verbs.**
 
-*Next: [03_COMBAT.md](03_COMBAT.md) — the figure, the base, and the melee procedures.*
+*Next: [04_COMBAT.md](04_COMBAT.md) — the figure, the base, and the melee procedures.*

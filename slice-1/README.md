@@ -12,10 +12,12 @@ First Corpus.
 
 | # | Doc | Covers |
 |---|---|---|
-| 1 | [01_PRIMITIVES.md](01_PRIMITIVES.md) | Position · State · Resource · Agency · the Instance · the laws that bind them · SOUL (reserved) |
-| 2 | [02_GRAMMAR.md](02_GRAMMAR.md) | The PACKET · Success → Grade → Effect · the Save · the three verbs · invocations |
-| 3 | [03_COMBAT.md](03_COMBAT.md) | The Figure (Square) · the Base (engagement/facing/reach) · Wounds & Armour · MOVE/ACTION/WAIT · Push · the Counter |
-| 4 | [04_WALKTHROUGH.md](04_WALKTHROUGH.md) | A full worked melee exchange, turn by turn, with every State change shown — the testable artifact |
+| 1 | [01_PRIMITIVES.md](01_PRIMITIVES.md) | The four primitives — Position · Force · State · Resource · Agency — and the laws that bind them |
+| 2 | [02_WORLD.md](02_WORLD.md) | **The object model** — Entity · the four layers (Definition/Procedure/Instance/Presentation) · Ownership · Reference · Relationship |
+| 3 | [03_GRAMMAR.md](03_GRAMMAR.md) | The PACKET · Success → Grade → Effect · the Save · the three verbs · invocations |
+| 4 | [04_COMBAT.md](04_COMBAT.md) | The Figure (Square) · the Base (engagement/facing/reach) · Wounds & Armour · MOVE/ACTION/WAIT · Push · the Counter |
+| 5 | [05_WALKTHROUGH.md](05_WALKTHROUGH.md) | A full worked melee exchange, turn by turn, with every State change shown — the testable artifact |
+| Ω | [APPENDIX_OMEGA_RESERVED.md](APPENDIX_OMEGA_RESERVED.md) | **Reserved constitutional space** — SOUL, held outside the executable kernel |
 
 ## Deliberately deferred to Slice 2+
 The Mind channel (**Morale** damage, the **Nerve** save, the **Morale check**), the **Circle**,

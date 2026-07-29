@@ -6,7 +6,7 @@ line cites the rule it exercises; every State change is shown on the Instance. D
 
 ## The two figures
 
-Both use the `spearman` Definition from [03_COMBAT.md](03_COMBAT.md):
+Both use the `spearman` Definition from [04_COMBAT.md](04_COMBAT.md):
 `shape square · agency 2 · wounds 2 · armour M (save 5+) · packet spear_thrust`.
 
 `spear_thrust` = **5 dice, success 4+**, grades: `1:Push · 2:1 Wound · 3:1 Wound + Guard · 4:2 Wounds`.
@@ -95,15 +95,15 @@ number.**
 
 | Loop step | Exercised by | Rule source |
 |---|---|---|
-| perceive Position | contact / facing / flank | 03_COMBAT · Base |
-| choose intent | MOVE then ACTION | 02_GRAMMAR · verbs |
+| perceive Position | contact / facing / flank | 04_COMBAT · Base |
+| choose intent | MOVE then ACTION | 03_GRAMMAR · verbs |
 | spend Agency | 2 AP, one per verb | 01_PRIMITIVES · Agency (Ruling 2) |
-| invoke Capability | `spear_thrust` via ACTION; Counter via Written Trigger | 02_GRAMMAR · invocations |
-| world constrains | `not_in_contact`, `provokes`, facing | 02/03 · named fields (Law 15) |
-| Procedure resolves | roll → Successes → Grade → Effect | 02_GRAMMAR · resolution |
-| Save | Armour, 1 die per Wound | 02_GRAMMAR · Save |
-| State changes | Wounds, Guard, Knocked Out | 01/03 · Body channel |
-| out-of-turn | the free Counter, capped by Position/death | 03_COMBAT · Counter |
+| invoke Capability | `spear_thrust` via ACTION; Counter via Written Trigger | 03_GRAMMAR · invocations |
+| world constrains | `not_in_contact`, `provokes`, facing | 03/04 · named fields (Law 15) |
+| Procedure resolves | roll → Successes → Grade → Effect | 03_GRAMMAR · resolution |
+| Save | Armour, 1 die per Wound | 03_GRAMMAR · Save |
+| State changes | Wounds, Guard, Knocked Out | 01/04 · Body channel |
+| out-of-turn | the free Counter, capped by Position/death | 04_COMBAT · Counter |
 
 **No undefined rule was reached.** Nerve/Morale, the Circle, formation movement, and persistence
 were never needed — confirming they belong to Slice 2, not Slice 1.
