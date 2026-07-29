@@ -1,0 +1,37 @@
+# CUS glossary — single source of truth for TERMS (the lexical layer).
+# columns: term <TAB> status <TAB> id <TAB> ref <TAB> ruling <TAB> note
+#   status = LIVE | RETIRED
+#   LIVE:    ref = canonical home doc (repo-relative) — the hyperlink target for the term.
+#   RETIRED: ref = the live term to use instead; id = the retired-lint allow-id.
+# Retired CLAIMS (relational assertions) live in _retired/registry.tsv, swept by _retired/sweep.py.
+# This file + glossary_lint.py govern terms and link integrity. No summary outranks its cited source.
+Object	LIVE	object	slice-1/02_WORLD.md		The root noun; everything is an Object on three axes (Ontology/Layer/Ownership).
+Figure	LIVE	figure	composition/03_UNIT_PROFILE.md	CON-0023	The authored unit definition; you author the Figure, Presentation renders the Archetype.
+Archetype	LIVE	archetype	composition/02_ARCHETYPE.md	CON-0023	The rendered identity label — a Presentation view, never authored/stored/resolved.
+FrameSpec	LIVE	framespec	composition/02_ARCHETYPE.md	CON-0023	Role x Tool socket schema; owns no fact.
+Frame	LIVE	frame	interface/01_FRAME.md	CON-0023	The physical face (FrameSpec + physical Frame); not a layer or root Object.
+Signature	LIVE	signature	composition/02_ARCHETYPE.md	CON-0023	Specializes the Frame (the > step); does not resolve it.
+Tempo	LIVE	tempo	composition/02_ARCHETYPE.md	CON-0022	Cadence of the decision loop (@), not movement speed.
+Role	LIVE	role	composition/01_AXES.md		Pressure / Anchor / Utility.
+Tool	LIVE	tool	composition/01_AXES.md		Melee / Ranged / Hybrid.
+Packet	LIVE	packet	slice-1/03_GRAMMAR.md		The unit of action in the grammar (PACKET).
+Morale	LIVE	morale	slice-2/01_MIND_CHANNEL.md		The Mind channel's incoming pressure.
+Nerve	LIVE	nerve	slice-2/01_MIND_CHANNEL.md	CON-0001;CON-0011	A tiered SAVE rolled per incoming Morale point.
+Circle	LIVE	circle	slice-2/02_THE_CIRCLE.md	CON-0010	Breaks like a Square via the Mind channel; differs by +Agency / faceless / no formation.
+Square	LIVE	square	slice-2/02_THE_CIRCLE.md		The rank-and-file figure with Morale/Nerve.
+Formation	LIVE	formation	slice-2/03_THE_GROUP.md		A coherency relationship; Form Up is a MOVE that ends in it.
+Persistence	LIVE	persistence	slice-3/00_PERSISTENCE.md		Temporal scope on State.
+Aftermath	LIVE	aftermath	slice-3/00_PERSISTENCE.md		The boundary Procedure that records durable State.
+Scar	LIVE	scar	slice-3/01_HARM_LIFECYCLE.md	CON-0023	Figure State (Wounds->Injury->Scar; Mind Scar); not an Overlay.
+Book	LIVE	book	interface/04_BOOK_AND_CARAVAN.md		Personal container; membership Relationship Book->Figure.
+Caravan	LIVE	caravan	interface/04_BOOK_AND_CARAVAN.md	CON-0023	Shared container; carries Books, not the roster directly.
+Push	LIVE	push	slice-1/04_COMBAT.md	CON-0012	The one displacement Effect (replaces the retired 'Shove').
+Shove	RETIRED	shove	Push	CON-0012	'Shove' is retired -> Push (a Push Effect on a packet).
+Ladder	RETIRED	grade-ladder	Success Grade	First-Corpus D	Grade vocabulary retired -> Success Grade.
+Rungs	RETIRED	grade-ladder	Success Grade	First-Corpus D	Grade vocabulary retired -> Success Grade.
+Outcome Track	RETIRED	grade-ladder	Success Grade	First-Corpus D	Grade vocabulary retired -> Success Grade.
+Nerve test	RETIRED	nerve-check	Morale check / tiered Nerve save	CON-0001;CON-0011	Nerve is a tiered SAVE; the aftermath roll is the Morale check.
+Nerve roll	RETIRED	nerve-check	Morale check / tiered Nerve save	CON-0001;CON-0011	Nerve is a tiered SAVE; the aftermath roll is the Morale check.
+Nerve check	RETIRED	nerve-check	Morale check / tiered Nerve save	CON-0001;CON-0011	Nerve is a tiered SAVE; the aftermath roll is the Morale check.
+MOVE-class	RETIRED	move-class	a MOVE (one of the three verbs)	Slice-1 03_GRAMMAR	'MOVE-class' is illegal vocabulary; Form Up is a MOVE with a coherency requirement.
+one-way ratchet	RETIRED	one-way-ratchet	Mind steps down on unsaved Morale; Rally steps up	Slice-2 01_MIND_CHANNEL	Mind track steps down on unsaved Morale; only Rally steps up in-battle.

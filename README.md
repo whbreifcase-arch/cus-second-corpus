@@ -31,5 +31,8 @@ behavior*.
 > First Corpus governs claims about its own historical text. **No summary outranks its cited source.**
 
 The rebuild proceeds through the Concordance's charter, status codes, and review gates — nothing
-enters this canon merely because it existed in the First Corpus. See **[`_retired/`](_retired/README.md)**
-for the register of dead terms (each cites the ruling that retired it).
+enters this canon merely because it existed in the First Corpus. Continuity is enforced by two lints over
+the canonical docs: **[`_retired/`](_retired/README.md)** registers retired *claims* (relational, swept by
+`sweep.py`), and **[`glossary.tsv`](glossary.tsv)** is the single source of truth for *terms* — LIVE and
+RETIRED — swept by `glossary_lint.py`, which also checks link integrity. Each entry cites the ruling that
+retired it.
