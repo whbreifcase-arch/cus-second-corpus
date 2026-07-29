@@ -8,7 +8,7 @@ A **PACKET** is a stateless, named, referenced definition of a resolvable effect
 data object. It:
 
 - has a **neutral ID** (the ID never encodes what kind of packet it is);
-- holds **no runtime state** (it is a Definition; results live in the Instance — see [02_WORLD.md](02_WORLD.md));
+- holds **no runtime state** — a Packet is an Object whose Instance facet is always empty; per-use results live on the acting Entity's Instance ([02_WORLD.md](02_WORLD.md));
 - is **defined once, referenced everywhere** — never copied onto each card;
 - carries **only** what its resolution needs;
 - does **not** encode whether it is "good" or "bad" — the Kernel carries no alignment tag.

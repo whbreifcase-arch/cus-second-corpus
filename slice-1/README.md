@@ -13,7 +13,7 @@ First Corpus.
 | # | Doc | Covers |
 |---|---|---|
 | 1 | [01_PRIMITIVES.md](01_PRIMITIVES.md) | The four primitives — Position · Force · State · Resource · Agency — and the laws that bind them |
-| 2 | [02_WORLD.md](02_WORLD.md) | **The object model** — Entity · the four layers (Definition/Procedure/Instance/Presentation) · Ownership · Reference · Relationship |
+| 2 | [02_WORLD.md](02_WORLD.md) | **The object model** — the **Object** root and three orthogonal axes: Ontology (Entity/Packet/Relationship) · Layer (Definition/Procedure/Instance/Presentation) · Ownership (one Object×Layer cell per fact) |
 | 3 | [03_GRAMMAR.md](03_GRAMMAR.md) | The PACKET · Success → Grade → Effect · the Save · the three verbs · invocations |
 | 4 | [04_COMBAT.md](04_COMBAT.md) | The Figure (Square) · the Base (engagement/facing/reach) · Wounds & Armour · MOVE/ACTION/WAIT · Push · the Counter |
 | 5 | [05_WALKTHROUGH.md](05_WALKTHROUGH.md) | A full worked melee exchange, turn by turn, with every State change shown — the testable artifact |

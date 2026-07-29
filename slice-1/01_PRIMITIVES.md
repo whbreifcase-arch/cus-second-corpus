@@ -61,11 +61,11 @@ A Resource is a limited quantity spent to produce change, typed by replenishment
 - There is **no second pool** for acting on someone else's activation. Out-of-turn answers cost nothing to resolve — they are limited by Position, authoring, and death, never by a budget.
 - Any deviation from 2 AP exists **only as a named, owned field** a tool can read — never as a sentence buried in prose. *[Kernel Law 15]*
 
-> **Where these live.** A primitive is a *substance*; the *containers* it lives in — the Entity,
-> the four layers (Definition · Procedure · Instance · Presentation), ownership, and reference —
-> are the object model, defined next in [02_WORLD.md](02_WORLD.md). Every live value in Slice 1
-> (current Position, `wounds_remaining`, an armed WAIT) is runtime state, and runtime state lives
-> only on the **Instance**.
+> **Where these live.** A primitive is a *substance*; the **Objects** it lives in — and the three
+> orthogonal axes that describe every Object (*what it is* · *where it exists* · *who owns each
+> fact*) — are the object model, defined next in [02_WORLD.md](02_WORLD.md). Every live value in
+> Slice 1 (current Position, `wounds_remaining`, an armed WAIT) is runtime state, owned at the
+> **Instance** layer.
 
 ## The binding laws (the ones Slice 1 relies on)
 
