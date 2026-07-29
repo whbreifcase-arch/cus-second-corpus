@@ -23,7 +23,8 @@ BATTLE  →  AFTERMATH  →  MARCH  →  (arrive)  →  next BATTLE
 
 The campaign runs on a **clock** — the `campaign` temporal scope made countable. Each turn of the
 loop is a **March**: the Caravan MOVEs across the map (Position at campaign scale), and the clock
-advances one step. Advancing the clock is what makes `campaign`-scoped State *change*:
+advances one step. Advancing the clock fires each `campaign` State's owned **`advance_rule`**
+([00_PERSISTENCE.md](00_PERSISTENCE.md)):
 
 - **Injuries heal** — one step per calm clock-turn (two with a Healer). A fully healed Injury clears; a neglected one **hardens into a Scar** ([01_HARM_LIFECYCLE.md](01_HARM_LIFECYCLE.md)).
 - **Rattle clears** — a Rattled mind steadies after a calm turn.
@@ -37,8 +38,11 @@ later content, not new architecture.
 
 ## How history feeds the next battle
 
-This is the payoff — the reason any of it was worth recording. When the next battle begins, each
-figure is instantiated **with its durable State intact:**
+This is the payoff — the reason any of it was worth recording. When the next battle begins, the
+**Battle-Start Procedure** ([00_PERSISTENCE.md](00_PERSISTENCE.md)) — the owned, entrance-side twin of
+the Aftermath — reads each figure's durable State and applies its initialization effect. Nothing "just
+carries over"; Battle-Start carries it. So each figure is instantiated **with its durable State
+intact:**
 
 - a **Scarred** figure carries its Scar's hook (a lower Nerve tier, a fear trigger, a limp);
 - an **Injured** figure fights impaired until it heals;

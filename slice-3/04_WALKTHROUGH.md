@@ -1,83 +1,100 @@
 # Slice 3 · Walkthrough — the survivors make history
 
 The testable artifact. It picks up **exactly where [Slice 2's walkthrough](../slice-2/04_WALKTHROUGH.md)
-ended**, runs the Aftermath, marches one clock-turn, and starts the next battle — so you can watch a
-battle's outcome walk into the next fight. Rolls are illustrative; the point is the loop **closes**
-and history is *felt*, not just logged.
+ended**, runs both persistence boundaries (Aftermath out, Battle-Start in), and marches one clock-turn
+— so you can watch a battle's outcome walk into the next fight and *cost* something. Rolls are
+illustrative; the point is the loop **closes** and history is *felt*.
 
-## Where Slice 2 left them
+## Where Slice 2 left them — and what the battle recorded
 
-| Warband (Caravan roster) | End of battle 1 |
-|---|---|
-| **C** (Circle leader) | Steady, unhurt |
-| **S1** (Square) | **Knocked Out** |
-| **S2** (Square) | survived, ended Shaken — but **was Broken** mid-battle, then Rallied |
-| **S3** (Square) | **Knocked Out**, felled far forward |
+As figures fell and broke, the Body and Mind procedures wrote **battle-scoped history flags** (not
+queryable Transitions — the flags are the stored proof, [Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)):
 
-The Caravan carries a **Healer** facility (`+1 care`).
+| Warband (roster) | End of battle 1 | Flag written |
+|---|---|---|
+| **C** (Circle leader) | Steady, unhurt | — |
+| **S1** (Square) | Knocked Out | `was_felled` |
+| **S2** (Square) | survived Shaken (Rallied back) | `was_broken` |
+| **S3** (Square) | Knocked Out | `was_felled` |
+
+The Caravan carries a **Healer** facility (`+1 care`) and — being a small expedition — **one bed slot.**
 
 ---
 
-## Step 1 — the Aftermath (the battle→campaign boundary)
+## Step 1 — the Aftermath (battle → campaign boundary)
 
-The Aftermath Procedure reads the battle's Transitions and rolls a graded packet per marked figure
-([01_HARM_LIFECYCLE.md](01_HARM_LIFECYCLE.md)):
+The Aftermath reads the **flags** and resolves one **`table` packet** per marked figure
+([01_HARM_LIFECYCLE.md](01_HARM_LIFECYCLE.md); resolver = `table`, [Slice 1 · 03_GRAMMAR](../slice-1/03_GRAMMAR.md)):
 
-- **S1 — `felled`.** Body Aftermath, 1d6 `+1` (Healer): rolls `3` → **4** → Grade I → **Injury: *Lame*** (−1″ MOVE). Recovered but limping.
-- **S3 — `felled`, far forward.** It fell where the line could not reach it before the enemy overran the ground: **−1 care.** Body Aftermath rolls `1` → **0** → **Dead.** S3 is removed from the roster.
-- **S2 — `broke`** (rallied, but the crack happened). Morale check, 1d6 `+1` (its leader C rode on): rolls `1` → **2** → Grade I → **Rattle** (will start the next battle Shaken).
-- **C** — never felled, never broke → no Aftermath roll.
-
-> **The stakes landed:** S3 is gone. Not knocked out to pop back up next scenario — *gone*, and the
-> roster is one Square lighter for the rest of the campaign.
+- **S1** (`was_felled`) — Body Aftermath, `1d6 +1` (Healer): `3` → **4** → band `2..4` → **Injury**, a bad leg — **severe (cannot walk; needs a bed slot).**
+- **S3** (`was_felled`) — Body Aftermath, `1d6 +1`: `2` → **3** → band `2..4` → **Injury**, also **severe (needs a bed slot).** *(A `≤1` would have been **Dead** outright — both survived the roll.)*
+- **S2** (`was_broken`) — the Morale check, `1d6 +1` (leader C rode on): `1` → **2** → band `2..4` → **Rattle** (walks; will start next battle Shaken).
+- **C** — no flags → no roll.
 
 ## Step 2 — the reset
 
-All `battle`-scoped State wipes: Wounds refill, the Mind track returns to Steady, Guard and armed
-WAITs clear, positions forget. What the Aftermath just promoted **does not** wipe — it is
-`campaign`/`permanent` now:
+All `battle`-scoped State wipes — Wounds refill, the Mind track returns to Steady, Guard clears,
+positions forget, **and the `was_felled` / `was_broken` flags clear now that the Aftermath has read
+them.** What the Aftermath *promoted* does not wipe:
 
-| after reset | durable State | scope |
+| after reset | durable State | scope · `advance_rule` |
 |---|---|---|
 | C | — (Hale) | — |
-| S1 | Injury: *Lame* | `campaign` |
-| S2 | *Rattle* | `campaign` |
-| ~~S3~~ | **Dead** | `permanent` |
+| S1 | Injury: *severe leg* | `campaign` · heal on rest, else harden to Scar |
+| S2 | *Rattle* | `campaign` · clears on a calm turn |
+| S3 | Injury: *severe leg* | `campaign` · (but — see Step 3) |
 
-## Step 3 — load the Caravan, and march
+## Step 3 — load the Caravan, and the choice it forces
 
-Roster into the Caravan: **C (Hale) · S1 (Injured, Lame) · S2 (Recovering, Rattled)** — three where
-there were four. S1's Lame is minor: it still walks, still takes a normal capacity slot.
+Membership is a `caravan_membership` **Relationship** per figure ([02_THE_CARAVAN.md](02_THE_CARAVAN.md));
+the Caravan queries it, and now capacity bites:
 
-**The decision — heal or hurry.** A Rest would advance the clock two steps (S1's Injury heals, S2's
-Rattle clears) — but the enemy is closing. The warband **hurries**: a **March** (clock `+1`, no rest).
-On the clock step:
-- S1's **Lame** does **not** heal — no rest. It travels into the next battle.
-- S2's **Rattle** does **not** clear.
-- `Charge` stores top up from the wagons (a March still resupplies).
-- Scars, had anyone one, would not move — but no one carries a permanent Scar yet. (S2's Morale check
-  came up **Rattle, not Mind Scar**, only because C was there for the `+1`; alone, that `1` would have
-  been a **Mind Scar** — a permanent Nerve-tier drop. The leader's presence was the difference between
-  a bad week and a lasting wound.)
+- **Walkers:** C (Hale) and S2 (Rattled) walk — walking slots, no problem.
+- **Bed-cases:** **S1 and S3 both need a bed** — and the Caravan has **one bed slot.**
 
-## Step 4 — the next battle begins, and history walks in
+**Forced choice — whom to carry.** Two figures who cannot walk, one wagon bed. The warband beds the
+veteran **S1** and **leaves S3.** S3's membership Relationship flips to `lost`: it is **removed from
+the roster.** The death this campaign turn was not a die roll — it was a **decision**, made because a
+wagon had one bed and two broken bodies in it.
 
-The next scenario instantiates the roster **with durable State intact** — not a blank slate:
+## Step 4 — march (the clock), then Battle-Start
+
+The enemy is closing, so the warband **hurries**: a **March** (clock `+1`, no Rest). Each `campaign`
+State's `advance_rule` fires:
+
+- **S1's severe Injury** — carried, not rested: it does not heal, but the bed keeps it alive, and it stabilises one step **severe → Lame** (walking-wounded). (A Rest would have healed it further; hurrying did not.)
+- **S2's Rattle** — no calm turn, so it **does not clear.**
+- `Charge` stores top up; Scars, had anyone had one, would not move. *(S2's Morale check came up Rattle, not a **Mind Scar**, only because C was there for the `+1`; alone, that `1` lands a permanent Nerve-tier drop. The leader's presence was the difference between a bad week and a lasting wound.)*
+
+Then the next scenario begins, and the **Battle-Start Procedure**
+([00_PERSISTENCE.md](00_PERSISTENCE.md)) — the entrance twin of the Aftermath — runs:
+
+```
+BATTLE-START
+  1. defaults:  Wounds full, Mind Steady, positions placed, flags false
+  2. read durable State:  S1 Lame · S2 Rattle · S3 absent (lost)
+  3. apply init effects:   Lame → S1 MOVE −1″ ;  Rattle → S2 starts Shaken (−1 die)
+  4. deploy the roster:    C · S1 · S2   (three where there were four)
+```
+
+## Step 5 — history walks in, and bites
+
+The next battle opens on the Battle-Start output:
 
 | figure | starts battle 2 as | because |
 |---|---|---|
 | **C** | Steady, Hale, 3 AP | untouched |
-| **S1** | **Lame** — MOVE range −1″ this battle | the Injury it hasn't rested off |
-| **S2** | **Shaken** from turn one (−1 die on ACTIONs) until it clears | the Rattle it carried |
-| **S3** | *absent* | it died |
+| **S1** | **Lame** — MOVE −1″ this battle | the leg it couldn't rest off |
+| **S2** | **Shaken** from turn one (−1 die) until it clears | the Rattle it carried |
+| **S3** | *absent* | left in the mud because the wagon had one bed |
 
-And it **bites immediately**: on turn one S1 needs a 3″ run-up to charge and, at −1″, comes up
-short — no charge, no Impact. S2, Shaken, rolls its first strike at −1 die. The unit that started
-Slice 2 as four fresh Squares under a hero opens Slice 3's battle as **a limping veteran, a rattled
-survivor, and a hole in the line where S3 used to stand.**
+On turn one it bites immediately: **S1**, at −1″, needs a 3″ run-up to charge and comes up short — no
+charge, no Impact. **S2**, Shaken, rolls its first strike at −1 die. The warband that started Slice 2
+as four fresh Squares under a hero opens Slice 3's second battle as **a lame veteran, a rattled
+survivor, a hero, and a hole in the line.**
 
-That is the whole thesis of the slice: **the `battle` world reset, but the `campaign`/`permanent`
-remainder did not — and it changed the next fight.**
+That is the whole thesis: **the `battle` world reset, but the `campaign`/`permanent` remainder did
+not — and Battle-Start walked it back onto the table.**
 
 ---
 
@@ -85,24 +102,24 @@ remainder did not — and it changed the next fight.**
 
 | Beat | Exercised by | Rule source |
 |---|---|---|
-| Temporal scope on State | battle vs campaign vs permanent, per row | 00_PERSISTENCE |
-| The Aftermath boundary Procedure | reads Transitions, rolls per figure | 00 + 01 |
-| Body: Wound → Injury | S1's Lame | 01 |
-| Body: Death (permanent) | S3 removed | 01 |
-| Mind: the Morale check → Rattle | S2's roll (on `broke`, not end-state) | 01 · Ruling 11 |
-| Aftermath rolls are graded PACKETs | 1d6 → Grade → Effect | 01 + Slice 1 · 03_GRAMMAR |
-| The Caravan (nesting Entity, roster) | loading C/S1/S2; S3 gone | 02 |
-| Capacity / facilities | the Healer's +1; S1 walks | 02 |
-| The clock & March | heal-or-hurry; Lame/Rattle persist | 03 |
-| History alters the next battle | S1 short of a charge, S2 opens Shaken | 03 |
+| Scope **+ `advance_rule`** on State | the durable-State table | 00 |
+| History **flags** (not Transitions) drive Aftermath | `was_felled` / `was_broken` read, then cleared | 00 + Slice 1 · 02_WORLD |
+| Aftermath rolls are **`table`** PACKETs | 1d6 ± care → band → Effect | 01 + Slice 1 · 03_GRAMMAR |
+| Body: Injury (severe) ; Mind: Rattle | S1/S3 legs ; S2 rattle | 01 |
+| **Death** (permanent) | S3 lost | 01 + 02 |
+| Roster membership as a **Relationship** | `caravan_membership`, queried | 02 |
+| **Capacity — actually resolved** | 1 bed, 2 bed-cases → forced choice, S3 left | 02 |
+| The clock & `advance_rule` (heal-or-hurry) | March; S1 severe→Lame, Rattle persists | 03 |
+| **Battle-Start Procedure** (entrance boundary) | reads durable State, applies init effects | 00 + 03 |
+| History alters the next battle | S1 short of a charge, S2 opens Shaken, S3 gone | 03 |
 
-**No undefined rule was reached, and no new Object kind was invented.** "Campaign" turned out to be
-`battle`'s objects at a longer **scope**, plus one boundary Procedure (the Aftermath), plus a
-containing Entity (the Caravan) that is a Formation grown up. **The object model held at the top of the
-stack** — which was the real question Slice 3 asked.
+**No undefined rule was reached, and no new Object kind was invented.** "Campaign" is `battle`'s
+objects at a longer **scope**, plus two owned boundary Procedures (**Aftermath** out, **Battle-Start**
+in), plus a containing Entity (the Caravan) and `caravan_membership` Relationships. Every conversion
+across the battle↔campaign line is owned. **The object model held at the top of the stack.**
 
 ## Open at the seam — Slice 4 and beyond
-- **Recruitment** and the roster growing (the hole where S3 stood).
+- **Recruitment** and the roster growing back (the hole where S3 stood).
 - The **map, travel events, factions, territory** — content on the campaign loop.
 - The **Story module's Bonds** accruing across battles exactly the way Scars do — the same `campaign`-scope machinery pointed at relationships.
 - The two **declared blanks** — Redemption, and how a figure goes **hollow** — remain unbuilt by design.

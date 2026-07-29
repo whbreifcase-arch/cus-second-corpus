@@ -29,7 +29,7 @@ invented for "campaign"; a battle and a campaign are the same objects viewed at 
 | # | Doc | Adds |
 |---|---|---|
 | 0 | [00_PERSISTENCE.md](00_PERSISTENCE.md) | **The architecture** — temporal **scope** on every piece of State (battle / campaign / permanent) · the battle-end **reset** · the **Aftermath** boundary. Foundation. |
-| 1 | [01_HARM_LIFECYCLE.md](01_HARM_LIFECYCLE.md) | **Wound → Injury → Scar** (Body) and **Morale → the Morale check → Mind Scar** (Mind) · death · the Aftermath as a graded PACKET. |
+| 1 | [01_HARM_LIFECYCLE.md](01_HARM_LIFECYCLE.md) | **Wound → Injury → Scar** (Body) and **Morale → the Morale check → Mind Scar** (Mind) · death · the Aftermath rolls as **`table`** PACKETs, read from **history flags**. |
 | 2 | [02_THE_CARAVAN.md](02_THE_CARAVAN.md) | The **Caravan** — the persistent expedition Entity that carries the roster between battles · capacity · facilities (the Healer) · the model on the table. |
 | 3 | [03_THE_CAMPAIGN_LOOP.md](03_THE_CAMPAIGN_LOOP.md) | The **loop** and the **clock** — the March, recovery over time, and how a figure's history feeds the next battle. |
 | 4 | [04_WALKTHROUGH.md](04_WALKTHROUGH.md) | The Slice 2 battle's survivors run the Aftermath, load the Caravan, march a clock-turn, and **start the next battle carrying their scars** — the make-history loop, closed. |

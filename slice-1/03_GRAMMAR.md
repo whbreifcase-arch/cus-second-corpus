@@ -54,7 +54,9 @@ Counter — see [04_COMBAT.md](04_COMBAT.md)).
 ## Resolution — every packet resolves, by dice or automatically
 
 Every capability resolves **through a PACKET** — there is no second execution path in the corpus.
-A packet declares one **resolution mode**.
+A packet is either **`automatic`** (no roll) or **uncertain**; an uncertain packet declares its
+**resolver** — `graded` (count successes) or `table` (a modified roll onto a result band). Three
+modes, **one grammar**.
 
 ### `graded` — roll for it
 The default for anything with uncertainty (a strike, a shot):
@@ -86,6 +88,22 @@ normally-automatic effect may be given a **graded** version when the moment dese
 Rally whose Grade decides how many figures steady, a graded heal whose Grade decides how much mends.
 Nothing here is a new verb or a stray Procedure — Rally resolves exactly the way a strike does, minus
 the roll.
+
+### `table` — roll onto a result band
+Some uncertain outcomes are not "how many successes" but "which band did one roll land in" — an
+injury result, a scatter, an exploration event. A `table` packet rolls a single die (plus named
+modifiers) and applies the Effect of the band it lands in:
+
+```json
+{ "id": "body_aftermath", "resolution": "table",
+  "roll": "1d6", "modifier": "care",
+  "results": { "<=1": ["Dead"], "2..4": ["Injury"], ">=5": ["Recovered"] } }
+```
+
+`table` is the **third resolver, not a new engine**: like `graded` it maps a roll to an Effect — it
+just maps a *modified single roll to a band* instead of a *success count to a Grade*. Campaign,
+injury, and scatter tables all use it, so it earns a first-class place in the grammar rather than
+living as prose in each module.
 
 ## The Save
 

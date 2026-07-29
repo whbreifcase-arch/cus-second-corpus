@@ -17,13 +17,26 @@ containment is the *same nesting rule*, at a longer temporal scope:
 A figure in the Caravan is still a complete Entity with its own durable record (its Injuries, Scars,
 name). The Caravan adds carrying and coordination, not control.
 
-> This is the Slice 3 ontology payoff in one line: **a campaign roster is a Formation with a
-> `campaign` scope.** Nothing new in kind — the same container, viewed at a longer scope.
+> This is the Slice 3 ontology payoff: a Caravan uses the **same containment *pattern*** as a Formation
+> — nesting Entities — but its **membership persists at `campaign` scope** rather than `battle`. (Scope
+> is a property of the membership State, not of the Entity's taxonomic kind: a Caravan and a Formation
+> are different Entity kinds that happen to share a pattern.)
 
 ## What the Caravan holds
 
-The Caravan's Instance holds the **roster** — every figure between battles, in one of a few durable
-conditions (all `campaign`/`permanent` State on each figure, per [00_PERSISTENCE.md](00_PERSISTENCE.md)):
+Roster **membership** is not a list the Caravan owns — it is a **Relationship**
+([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)), the very object Slice 1 built for a fact that lives
+*between* two Entities:
+
+```
+Relationship: caravan_membership
+  from: Caravan A   to: Figure S1   scope: campaign   state: active
+```
+
+The Caravan **queries** its members through these edges; it keeps no second authoritative copy (that
+would be two owners for one fact). Each figure's *condition* — its Injuries, Scars, Rattle — remains
+durable **State on that figure** (per [00_PERSISTENCE.md](00_PERSISTENCE.md)). Between battles a member
+sits in one of a few conditions:
 
 - **Hale** — uninjured, ready.
 - **Injured** — carrying a `campaign` Injury; healing or worsening on the clock.
@@ -33,11 +46,15 @@ conditions (all `campaign`/`permanent` State on each figure, per [00_PERSISTENCE
 
 ## Capacity
 
-The Caravan has a **capacity** — how many it can carry. The catch is that **the wounded cost more**:
-a figure too injured to walk (`Injured`, severe) takes a wagon slot that a hale figure does not.
-Capacity is `campaign` State on the Caravan Entity; exceeding it forces a choice — leave someone
-behind (which worsens their Aftermath, −1 care) or slow the March. This is where persistence
-becomes a *decision* rather than bookkeeping.
+The Caravan has a **capacity**, and the catch is that **the wounded cost more.** Two slot kinds:
+
+- **walking slots** — a hale, Lame, or Rattled figure walks alongside and takes a walking slot;
+- **bed slots** — a figure too hurt to walk (a *severe* Injury) needs a **bed slot** in a wagon, and beds are few.
+
+Capacity is `campaign` State on the Caravan Entity. When bed-cases outnumber bed slots, the Caravan
+**cannot carry everyone** — a **forced choice**: whom to bed, and whom to leave. A figure left behind
+is **lost** — removed from the roster; the abandonment is, in effect, a death. This is where
+persistence stops being bookkeeping and becomes a decision with a body count.
 
 ## Facilities
 

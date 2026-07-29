@@ -140,6 +140,13 @@ Effect writes State → which may emit the next Transition.** No Entity is skipp
 smuggled in, and every step is owned. Naming this is what keeps Written Triggers honest — it is the
 machinery Slice 2 leans on.
 
+**Ephemeral vs recorded.** A Transition is a *moment*: a Trigger observes it **as it happens**, then
+it is gone. If a *later* Procedure needs to know a Transition occurred — the Aftermath, at battle's
+end, asking *"was this figure felled?"* — the emitting Procedure also **writes a scoped history flag**:
+ordinary stored State (`was_felled_this_battle = true`), owned exactly where the changed State is
+owned, expiring with its scope. The Transition stays ephemeral; the flag is its stored proof. Two
+owned flags are **not** an event log — reach for a log only if you actually want log architecture.
+
 ---
 
 ## The object model in one breath

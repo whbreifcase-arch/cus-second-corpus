@@ -22,8 +22,16 @@ State ([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)) is *what is true now*. Sli
 | `permanent` | never | a **Scar**, a figure's name and identity, the dead staying dead |
 
 Scope is a field on the State, owned exactly where the State is owned (`(Object × Layer)`). Nothing
-about *where* state lives changes; Slice 3 only writes down *when it expires*. This also closes the
-Wave-2 "state without an expiry rule" risk — **every State now declares its scope.**
+about *where* state lives changes; Slice 3 only writes down *when* it changes. But scope alone answers
+only *which temporal domain owns this State* — not *how* a particular fact expires. So the
+constitutional rule is **two-part:**
+
+> **Every State declares its temporal `scope`. Every non-`permanent` State also declares an owned
+> `advance_rule`** — how it resets, heals, clears, or hardens. (An Injury: *on a calm clock-turn, heal
+> one step; if neglected, harden to a Scar.* Guard: *clear at the figure's next activation.*)
+
+Scope *plus* `advance_rule` is what actually closes the Wave-2 "state without an expiry rule" risk —
+scope alone would only half-answer it.
 
 ## The battle-end reset
 
@@ -45,20 +53,46 @@ into durable State before the reset wipes it:
 ```
 BATTLE ENDS
    ↓
-AFTERMATH  (the boundary Procedure)
-   ├─ for each figure that ended Knocked Out → Body aftermath  → Dead / Injury / Recovered
-   ├─ for each figure that ended Broken      → the Morale check → Mind Scar / Rattle / Steeled
-   └─ promote the results to campaign/permanent State on the figure's record
+AFTERMATH  (the boundary Procedure — reads the battle's history flags)
+   ├─ each figure with was_felled  → Body aftermath  (table) → Dead / Injury / Recovered
+   ├─ each figure with was_broken  → the Morale check (table) → Mind Scar / Rattle / Steeled
+   └─ promote results to campaign/permanent State on the figure's record
    ↓
-RESET  (wipe all battle-scoped State)
+RESET  (wipe all battle-scoped State — including the history flags)
    ↓
 CAMPAIGN  (the Caravan carries the durable records onward)
 ```
 
-The Aftermath reads a **Transition** the battle already recorded — *this figure was felled*, *this
-figure broke* ([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md), Transitions) — and resolves the
-consequence. It does not invent state; it **promotes** it across the scope boundary, then lets the
-reset clear the rest. Details of each roll are in [01_HARM_LIFECYCLE.md](01_HARM_LIFECYCLE.md).
+The Aftermath **cannot read a Transition** — a Transition is an ephemeral moment, long gone by
+battle's end ([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)). Instead it reads the **battle-scoped
+history flags** the Body and Mind Procedures wrote *alongside* those Transitions — `was_felled`,
+`was_broken` — resolves the matching packet, **promotes** the result across the scope boundary, and
+only then does the reset clear the `battle` scope, flags included. Details of each roll are in
+[01_HARM_LIFECYCLE.md](01_HARM_LIFECYCLE.md).
+
+## The entrance boundary — Battle-Start
+
+Aftermath is the *exit* from a battle. It has a twin at the *entrance*, because durable State does
+not apply itself — a Procedure must read it and set the scene. **Battle-Start** runs when a scenario
+begins:
+
+```
+BATTLE-START  (the entrance boundary Procedure)
+   1. instantiate battle-scoped defaults   (Wounds full, Mind Steady, positions placed, flags false)
+   2. read each surviving figure's durable campaign/permanent State
+   3. apply each condition's initialization effect   (Rattle → start Shaken; Lame → −1″ MOVE; a Mind Scar → its Nerve-tier drop)
+   4. deploy the roster
+```
+
+The two boundaries are symmetric, and together they *are* the persistence loop:
+
+```
+Battle-Start :  durable State  → battle initialization
+Battle-End   :  battle history → durable State        (Aftermath)
+```
+
+Every conversion across the battle↔campaign line is owned by one of these two Procedures. Nothing
+"just carries over": **Battle-Start carries it, explicitly.**
 
 ## Why this is architecture, not a module
 
