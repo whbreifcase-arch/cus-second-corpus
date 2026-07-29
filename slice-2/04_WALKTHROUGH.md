@@ -1,14 +1,15 @@
-# Slice 2 · Walkthrough — a group breaks, and is held
+# Slice 2 · Walkthrough — a group breaks, Routs, and is held
 
-The testable artifact. A Square unit under a Circle leader takes casualties, wavers, and one figure
-Routs — until the leader Rallies it. Slice 1 melee is compressed to its results; the dice shown are
-the **new** Slice 2 rolls (Nerve saves, Morale steps, Rally). Illustrative rolls; the point is the
-loop **closes**.
+The testable artifact. It runs on the real scheduler ([00_ACTIVATION.md](00_ACTIVATION.md)):
+**sides alternate, one figure at a time.** That is what lets a broken figure take its own routing
+activation *before* its leader can reach it — the thing the earlier draft glossed. Slice 1 melee is
+compressed to results; the dice shown are the **new** Slice 2 rolls. Illustrative rolls; the point is
+the loop **closes**.
 
 ## The board
 
-**Player** — a Formation of three Squares **S1 · S2 · S3** (each `wounds 2 · armour M(5+) · nerve M(5+)`),
-in coherency, with a **Circle leader C** (`3 AP · faceless · Nerve H (4+) · leadership 3″`) fighting
+**Player** — a Formation of three Squares **S1 · S2 · S3** (`wounds 2 · armour M(5+) · nerve M(5+)`),
+in coherency, with a **Circle leader C** (`3 AP · faceless · nerve H(4+) · leadership 3″`) fighting
 beside them (never *in* the Formation — [02_THE_CIRCLE.md](02_THE_CIRCLE.md)).
 
 **Enemy** — two Squares **E1 · E2** (`wounds 2 · armour M`).
@@ -20,85 +21,82 @@ beside them (never *in* the Formation — [02_THE_CIRCLE.md](02_THE_CIRCLE.md)).
 
 ---
 
-## Round 1
+## Round 1 — activations alternate, one figure at a time
 
-### Enemy activates
-- **E1 fells S1.** Two strikes, Slice 1 melee procedure → **S1 Knocked Out.**
-- **⚡ Shock (Written Trigger).** S1's KO deals **1 Morale** to every friendly within 3″. Roll one Nerve die each (M = 5+):
-  - **S2** → `3` → **fails** → Steady → **Shaken**.
-  - **S3** → `6` → **saves** → stays **Steady**.
-  - **C** → rolls Nerve like anyone (H = 4+): `5` → **saves** → stays **Steady**. A hero is resilient, not immune.
-- **E2 strikes S2** → Grade 2 → 1 Wound. S2's Armour → `4` → fails → **S2: 2 → 1**.
-  *(Note: S2 is Shaken, but Shaken only penalises a figure's **own** ACTIONs — its Armour save is unaffected.)*
+**① Enemy · E1** strikes **S1** (in contact), two ACTIONs → **S1 Knocked Out.**
+- ⚡ The Body procedure writes S1 to Knocked Out and emits the **`felled` Transition.** The **Shock** Trigger fires: 1 Morale to each friendly within 3″, resolve Nerve —
+  - **S2** `3` → **fail** → Steady → **Shaken**.
+  - **S3** `6` → save → Steady.
+  - **C** (H, 4+) `5` → save → Steady.
 
-### Player activates
-- **S2 (Shaken) strikes E1** — demonstrating the penalty: its `spear_thrust` rolls **−1 die → 4 dice**: `5 · 4 · 2 · 1` → 2 Successes → Grade 2 → 1 Wound on E1. The rattled soldier still fights, just worse.
-- **C and S3** press E1 (compressed). The line holds — for now.
+**② Player · C** (3 AP) — the leader acts on its **own** activation (a Circle is never in the Formation): **MOVE** into contact with E1; **ACTION → strike** → Grade 3 → 1 Wound + Guard; E1 Armour `2` → fails → **E1: 2 → 1**. (Third AP held.)
 
-| after R1 | Mind | Body |
-|---|---|---|
-| S1 | — | **Knocked Out** |
-| S2 | **Shaken** | 1 |
-| S3 | Steady | 2 |
-| C | — | 2 |
+**③ Enemy · E2** **MOVE**s to **S3** and strikes, two ACTIONs → **S3 Knocked Out.**
+- ⚡ `felled` again → **Shock** within 3″:
+  - **S2** *(already Shaken)* `2` → **fail** → **Shaken → Broken.**
+  - **C** (H, 4+) `6` → save → Steady.
+
+**④ Player · S2 — Broken, and it takes its own activation.** This is the beat the scheduler makes real: it is S2's turn, and a Broken figure **Routs**. S2 **MOVE**s directly away from the nearest enemy (spending its AP to flee), makes **no offensive ACTION**, and **drops out of the Formation** — coherency broken. S2 ends ~6″ off, alone, still **Broken.**
+
+*Round 1 ends* — E1, C, E2, S2 have activated; S1 and S3 are down.
+
+> **The Rout actually happened.** S2 was not conveniently caught before it could run. It spent a
+> whole activation fleeing and left the line, because the leader had already activated and could not
+> be two places at once. The panic cost ground — which is the whole point of alternating activation.
+
+| after R1 | Mind | Body | note |
+|---|---|---|---|
+| S1 | — | Knocked Out | |
+| S2 | **Broken** | 2 | **Routing · left Formation** |
+| S3 | — | Knocked Out | |
+| C | Steady | 2 | |
 
 ---
 
-## Round 2 — the break
+## Round 2 — the leader pays a turn to hold
 
-### Enemy activates
-- **E2 fells S3.** Slice 1 melee → **S3 Knocked Out.**
-- **⚡ Shock.** S3's KO deals 1 Morale to friendlies within 3″:
-  - **S2** is **already Shaken** → Nerve `2` → **fails** → **Shaken → Broken.**
-    → **S2 Routs:** next activation it must flee, may make no offensive ACTION, and **drops out of the Formation.** The unit is coming apart.
-  - **C** → Nerve (H, 4+): `6` → **saves** → stays **Steady**. The hero's will holds where the levy's broke — a save, not an exemption.
-- **E2 repositions behind C** and strikes it in the **rear**.
-  - **Faceless:** a Square struck in the flank could not answer — but **C has no flanks.** C **Counters from the rear** (a free melee packet, Slice 1): `6 · 5 · 4 · 3` → 3 Successes → Grade 3 → 1 Wound + Guard on E2. The hero cannot be caught from behind.
+**① Player · C** (3 AP): **MOVE** after the routing S2 (up to within 3″ — its own Agency, never carried by a Formation); **ACTION → Rally** — the `automatic` Rally packet ([03_THE_GROUP.md](03_THE_GROUP.md)) applies with no roll: **S2 Broken → Shaken, and S2 stops Routing.** Third AP: reface toward the enemy.
 
-### Player activates — the leader holds the line
-**C (3 AP)** — a Circle moves and acts on **its own Agency**, never carried by the Formation:
-1. **MOVE** to within 3″ of the routing **S2** (its own AP).
-2. **ACTION → Rally S2** — steps the Mind track **up one: Broken → Shaken.** **S2 stops Routing;** Shaken, it may act again next turn (at −1 die). *[Ruling 9 — a leader can Rally.]*
-3. **ACTION → strike E2** (Slice 1 melee), finishing what the rear-Counter started.
+**② Enemy · E2** repositions **behind C** and strikes its **rear.**
+- **Faceless:** a Square struck from behind could not answer — but **C has no flanks.** C **Counters from the rear** (free Written Trigger, Slice 1): `6 · 5 · 4 · 3` → Grade 3 → 1 Wound + Guard on E2. The hero cannot be caught from behind.
+
+**③ Player · S2 — Shaken, no longer Routing.** It takes a normal activation, **MOVE**ing back toward the line (it may ACTION at **−1 die** while Shaken). The unit is reforming.
+
+**④ Enemy · E1** presses, but the line has stabilised.
 
 | after R2 | Mind | Body | note |
 |---|---|---|---|
-| S1 | — | Knocked Out | |
-| S2 | **Shaken** | 1 | **Rallied — stopped Routing** |
-| S3 | — | Knocked Out | |
-| C | — | 2 | held the line |
+| S2 | **Shaken** | 2 | **Rallied — rejoining** |
+| C | Steady | 2 | held the line |
 
-**Result:** the unit that was one failed save from routing off the table is still fighting, because
-a leader who kept its own feet — a steadier will (Heavy Nerve) and a spare action out of three —
-spent one ACTION to reverse the Rout. Two Squares are down, but the line did not break. The Circle
-held it not by being *immune* to the panic, but by being **more resistant** to it and having the
-Agency to lead the rest back.
+**Result:** the honest version costs a **turn.** The Rout happened; S2 ran; and the leader spent an
+entire activation — a move and the Rally — reversing *one* figure while the rest of the field went
+unanswered. The Circle held the line not by immunity (it took the same shocks, and saved on its
+Heavy Nerve) and not by a bonus, but by being **more resistant** and **choosing** to spend its tempo
+on the break. Alternating activation is what turned "hold the line" into a decision instead of a
+free clean-up.
 
 ---
 
 ## Coverage check — did Slice 2 close?
 
-| New beat | Exercised by | Rule source |
+| Beat | Exercised by | Rule source |
 |---|---|---|
-| Morale as channel damage | Shock deals 1 Morale | 01_MIND_CHANNEL |
-| Nerve as a tiered save | 1 save die per Morale point (M 5+) | 01 · Ruling 1 |
+| Activation scheduler | alternating, one figure at a time, explicit | 00_ACTIVATION |
+| Transition + Trigger | Body emits `felled`; Shock watches it | 01 + Slice 1 · 02_WORLD |
+| Morale as channel damage / Nerve save | Shock's 1 Morale, Nerve dice | 01 · Ruling 1 |
 | Mind track steps | Steady → Shaken → Broken | 01 |
-| Shaken penalty | S2's −1-die strike | 01 |
-| Shock (Written Trigger) | KO within 3″ → 1 Morale | 01 (reuses Slice 1 grammar) |
-| Circle: 3 AP | C's three acts | 02 · Ruling 2 |
-| Circle: faceless | the rear Counter | 02 |
-| Circle: same Mind channel | took shock, saved on Nerve (H 4+) | 02 · Ruling 10 (rev.) |
-| Circle: not in formation | C moved on its own AP | 02 · Ruling 13 |
-| Formation & coherency | the screened unit, S2 dropping out on Rout | 03 |
-| Rout | Broken S2 flees, leaves Formation | 03 |
-| Rally | leader steps the track up | 03 · Ruling 9 |
+| **Rout — actually performed** | S2 flees a full activation, leaves Formation | 03 |
+| Rally as an `automatic` PACKET | leader's no-roll ACTION steps the track up | 03 + Slice 1 · 03_GRAMMAR |
+| Circle: 3 AP · faceless · same Mind channel | rear Counter; took shock, saved on Nerve | 02 · Rulings 2, 10 (rev.) |
+| Circle: not in formation | C moved on its own AP both rounds | 02 · Ruling 13 |
+| Formation & coherency (`flank_covered`) | the screened unit; S2 dropping out on Rout | 03 |
 
-**No undefined rule was reached.** Every new object slotted into the Slice 1 ontology — Morale/Nerve
-are State, Shock/the Circle-break are Written Triggers, the Formation is a nesting Entity, Rally is a
-Procedure. **The three-axis object model held with nothing added to it.** That was the real test of
-Slice 2, and it passed.
+**No undefined rule was reached, and nothing was added to the three-axis object model** — Morale/Nerve
+are State, Shock is a Trigger on a Transition, the Formation is a nesting Entity, Rally is a PACKET.
+The one genuinely new *foundation* piece — the **activation scheduler** — was a gap in Slice 1 too,
+and is now written down where it belongs.
 
 ## Open at the seam — Slice 3, "a battle makes history"
-- **S1 and S3 are Knocked Out** — what becomes of them after the battle? Wounds → Injury → Scar.
-- **S2 ended Shaken** (Rallied down from Broken) — does that leave a mark? The **Morale check** decides whether a figure that broke carries a **Mind Scar** forward. *[Ruling 11 — the Morale check is the aftermath roll; it is Persistence, and Persistence is Slice 3.]*
-- The **Caravan**, the campaign clock, and everything that turns a battle into a history: Slice 3.
+- **S1 and S3 are Knocked Out**, **S2 ended Shaken** (Rallied down from Broken). Does breaking leave a mark? The **Morale check** decides whether a figure that broke carries a **Mind Scar** forward. *[Ruling 11 — the Morale check is the aftermath roll; it is Persistence, and Persistence is Slice 3.]*
+- Wounds → Injury → Scar, the **Caravan**, and the campaign clock: Slice 3.

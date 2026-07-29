@@ -121,6 +121,27 @@ This is why the corpus can add a hundred weapons without touching the grammar: e
 
 ---
 
+## Transitions — how change is observed
+
+State is *what is true*. But some objects react to *what just changed* — a Counter fires when a
+strike lands, Shock fires when a figure falls, an armed WAIT fires when an enemy enters a band. What
+they watch is not a State; it is a **Transition** — the moment a State crosses a value
+(`Standing → Knocked Out`, `Steady → Shaken`, `has_activated: false → true`). Four terms, kept
+distinct, cover all causal propagation **without inventing an Event object**:
+
+- **State** — what is true now (owned at one Instance cell).
+- **Transition** — the fact that a State just changed. It is **emitted by the Procedure that owns the State it changes** — e.g. the Body procedure, on writing a figure to Knocked Out, emits the `felled` transition. A Transition is not a stored object; it is a named moment.
+- **Trigger** — a clause on a **Definition** that watches for a named Transition (a Written Trigger). *"On a friendly `felled` within 3″, deal 1 Morale"* watches `felled`.
+- **Invocation** — what the Trigger does when it fires: it **invokes a PACKET** ([03_GRAMMAR.md](03_GRAMMAR.md)) — free, once per occurrence, gated by Position and authoring.
+
+So a causal chain — *a strike fells a figure, which shocks its neighbours, one of whom breaks* — is
+just: **a Procedure writes State → emits a Transition → a Trigger watching it invokes a PACKET → that
+Effect writes State → which may emit the next Transition.** No Entity is skipped, no event object is
+smuggled in, and every step is owned. Naming this is what keeps Written Triggers honest — it is the
+machinery Slice 2 leans on.
+
+---
+
 ## The object model in one breath
 
 > The world is **Objects**. Each is described by three orthogonal axes: it **is** a kind (Entity ·

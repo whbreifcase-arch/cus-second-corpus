@@ -31,6 +31,7 @@ The owning module decides which fields its packets require. For Slice 1's Combat
 {
   "id": "spear_thrust",
   "verb": "ACTION",
+  "resolution": "graded",
   "targets": "one figure in contact",
   "constraints": { "not_in_contact": false, "provokes": true },
   "cost": { "agency": 1 },
@@ -50,21 +51,41 @@ never prose. A bullet is `los:true`; a lobbed grenade is `los:false, path:true`.
 uses `not_in_contact:false` (must be in base contact) and `provokes:true` (this strike may draw a
 Counter — see [04_COMBAT.md](04_COMBAT.md)).
 
-## Resolution — Success → Grade → Effect
+## Resolution — every packet resolves, by dice or automatically
 
-One resolver, used by every packet:
+Every capability resolves **through a PACKET** — there is no second execution path in the corpus.
+A packet declares one **resolution mode**.
+
+### `graded` — roll for it
+The default for anything with uncertainty (a strike, a shot):
 
 1. **Roll the PACKET's dice.**
 2. **Count Successes** — each die that meets or beats the `success_number`.
-3. **Resolve the highest Grade achieved.** Grade *N* fires **only** the Effects written at Grade *N* — a higher Grade does **not** inherit lower Grades' Effects (discrete grading).
+3. **Resolve the highest Grade achieved.** Grade *N* fires **only** the Effects written at Grade *N* — a higher Grade does **not** inherit lower Grades' (discrete grading).
 
-So with the `spear_thrust` above: 3 Successes → **Grade 3 → "1 Wound + Guard"** (not Grade 1's Push
-as well). Each Grade line is a complete, self-contained outcome. If a designer wants an Effect on
-every line, they write it on every line.
+So with `spear_thrust`: 3 Successes → **Grade 3 → "1 Wound + Guard"** (not Grade 1's Push as well).
+Each Grade line is a complete, self-contained outcome.
 
 - **Success** — a die that meets the packet's success number.
 - **Grade** — how well the whole roll succeeded.
 - **Effect** — what resolving that Grade changes (a Wound, a Push, Guard…). Effects write State or Position, nothing else.
+
+### `automatic` — it just resolves
+Some capabilities carry no uncertainty — a Rally, a heal, opening a door, issuing a command. An
+`automatic` packet **applies its Effect with no roll and no Grade.** It still targets, still checks
+its constraints, still costs Agency; it only skips the dice.
+
+```json
+{ "id": "rally", "verb": "ACTION", "resolution": "automatic",
+  "targets": "one coherent friendly Formation", "constraints": { "range": 3, "friendly": true },
+  "cost": { "agency": 1 }, "effects": ["recover 1 Morale stage"] }
+```
+
+Automatic and graded are **the same grammar with the dice step optional** — not two engines. And a
+normally-automatic effect may be given a **graded** version when the moment deserves it: a graded
+Rally whose Grade decides how many figures steady, a graded heal whose Grade decides how much mends.
+Nothing here is a new verb or a stray Procedure — Rally resolves exactly the way a strike does, minus
+the roll.
 
 ## The Save
 

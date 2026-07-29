@@ -1,8 +1,9 @@
 # Slice 2 · The Mind Channel
 
 Slice 1 built the **Body** channel: damage `Wounds`, save `Armour`, a terminal at 0. The Mind
-channel is its **symmetric twin** — and reuses every piece of Slice 1's grammar. Nothing new is
-invented; a second channel is instantiated.
+channel implements the **same channel interface** — damage, save, state consequence — and reuses
+every piece of Slice 1's grammar. Nothing new is invented; a second channel is instantiated. (The
+*interface* is symmetric; the two tracks deliberately are **not** — see the asymmetry note below.)
 
 ```
 BODY   damage = Wounds    save = Armour    track: Standing → Knocked Out → Dead   (Slice 1)
@@ -39,8 +40,9 @@ track one state.
 
 ## The Mind track — Steady → Shaken → Broken
 
-The Mind track is a **one-way ratchet** of three states. Each unsaved Morale steps it **down** one;
-**only Rally** ([03_THE_GROUP.md](03_THE_GROUP.md)) steps it back up.
+The Mind track is a **staged track** with exactly one authorised in-battle recovery. Unsaved Morale
+steps it **down**; **only Rally** ([03_THE_GROUP.md](03_THE_GROUP.md)) steps it **up**. (It is not a
+"one-way ratchet" — Rally is the sanctioned way up; there is simply no *passive* recovery.)
 
 | State | Meaning | Effect |
 |---|---|---|
@@ -60,7 +62,7 @@ Slice 2's main Morale source falls straight out of Slice 1's melee: **when a fig
 or Dead, every *friendly* figure within 3″ takes 1 Morale** (a shock) and rolls Nerve. A unit does
 not break because its own bodies are tough — it breaks because it watches its neighbours fall.
 
-- Shock is a **Written Trigger** ([Slice 1 · 03_GRAMMAR](../slice-1/03_GRAMMAR.md)) carried by the *felling* event: "on a friendly KO/Dead within 3″, deal 1 Morale." Free, fires once per occurrence, gated by Position (the 3″).
+- Shock is a **Written Trigger** watching the **`felled` Transition** ([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)): the **Body procedure** emits `felled` when it writes a figure to Knocked Out or Dead, and the Trigger — *"on a friendly `felled` within 3″, deal 1 Morale"* — fires, invoking a 1-Morale `automatic` PACKET. Free, once per occurrence, gated by Position (the 3″). There is no "felling event" object: the Body procedure **owns the Transition**, the Trigger **owns the reaction**.
 - A **Circle takes shock and rolls Nerve like any figure** — a hero is *resilient* (usually a high Nerve tier), **not immune** (see [02_THE_CIRCLE.md](02_THE_CIRCLE.md)).
 
 ## The Morale check — named here, built in Slice 3

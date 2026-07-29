@@ -16,24 +16,32 @@ not control.
   fight *beside* one and lead it, but it is never a member and is never dressed into the rank.
 
 ### Form Up
-On its activation, a Square in base contact with a friendly Square may **Form Up** — a MOVE-class
-use of 1 AP that dresses it into a Formation (or founds one). Forming up writes Position; it invents
-no new verb.
+On its activation, a Square in base contact with a friendly Square may **Form Up** — a **MOVE** (1 AP)
+that **ends in a legal Formation relationship**: it dresses into an existing Formation, or founds one.
+Form Up is not a new verb and not a "MOVE-class" anything; it is a MOVE with a coherency requirement
+on where it ends.
 
 ### What the Formation is *for* (its benefit)
 Formation is not free movement — it earns its keep two ways:
 
-- **The screen.** Interior members present a shared **front**: a Square whose flanks are covered by
-  coherent neighbours **cannot be flanked**. Only the Formation's exposed edges have open flanks.
-  (This is pure Position — the razor's kind of benefit, not a bonus number.)
+- **The screen.** Interior members present a shared **front**. A Square's flank is **covered** when a
+  coherent, **unbroken** member of the *same* Formation is in **base contact** on that side and
+  overlaps its flank arc — the predicate **`flank_covered(figure, side)`**. A figure struck on a
+  `flank_covered` side is **treated as struck to its face** (it may Counter; it is not flanked). Only
+  the Formation's **exposed edges** — sides with no covering neighbour — carry open flanks. This is
+  pure Position — a benefit the base *shows*, not a bonus number; Presentation can teach a player to
+  read `flank_covered` by eye.
 - **Rallied as one.** A leader's Rally reaches **every member in coherency at once** (below), instead
   of one figure at a time.
 
 ### Group MOVE
-A Formation moves as a block: on the unit's activation, **each member spends 1 AP to MOVE**, and all
-move together **keeping coherency**. Agency stays the only pool a figure spends — there is no free
-formation movement and no second pool; the Formation only requires the moves stay coherent. Break
-coherency and the stragglers simply drop out.
+A Formation moves as a block on **one activation** ([00_ACTIVATION.md](00_ACTIVATION.md)). A member
+declares a **Formation MOVE**; it and every coherent member **that has not yet activated this round**
+move together, keeping coherency, and **each spends 1 AP**. For each figure, moving with the block
+**is its activation for the round** — so the whole coordinated move is a **single activation** in the
+alternation, and Agency is still spent only by its owner, on its own (now shared) turn. Break
+coherency and the stragglers drop out. A member with AP to spare may spend it in the same activation
+(move up with the block, then ACTION).
 
 ## The Leader
 
@@ -59,13 +67,21 @@ until Rallied.** The Temperament-specific rout behaviours are content for a late
 
 **A leader can Rally.** *[Ruling 9 — the "a leader cannot Rally" line is struck.]*
 
-- A Leader spends **1 AP on an ACTION → Rally**, targeting a figure or a coherent unit within **3″**.
-- Rally steps the Mind track **up one** — **Broken → Shaken**, or **Shaken → Steady** — for each
-  figure affected. A figure Rallied out of Broken **stops Routing** (Shaken, it may act again at −1 die).
-- Because a Formation is Rallied as one, a single Rally ACTION can steady a whole wavering unit — the
-  mechanical meaning of "the leader held the line."
-- **Only Rally steps the track up.** Nothing else recovers Morale in-battle; there is no passive
-  regeneration. The will comes back because someone leads it back.
+**Rally is a PACKET** — an `automatic` one ([Slice 1 · 03_GRAMMAR](../slice-1/03_GRAMMAR.md)). A Leader
+spends **1 AP on an ACTION** to resolve it; it applies its Effect with no roll. It is not a stray
+Procedure — it goes through the same grammar as a strike, minus the dice.
+
+```json
+{ "id": "rally", "verb": "ACTION", "resolution": "automatic",
+  "targets": "one coherent friendly Formation (or one figure)",
+  "constraints": { "range": 3, "friendly": true }, "cost": { "agency": 1 },
+  "effects": ["recover 1 Morale stage"] }
+```
+
+- It steps the Mind track **up one** — **Broken → Shaken**, or **Shaken → Steady** — for each figure affected. A figure Rallied out of Broken **stops Routing** (now Shaken, it may act next turn at −1 die).
+- Because a Formation is targeted **as one**, a single Rally steadies the whole coherent unit — the mechanical meaning of "the leader held the line."
+- **Only Rally steps the track up.** No passive recovery; the will comes back because someone leads it back.
+- Rally is also the clean case for a **graded** capability when you want one: a bigger authored packet — a *Rousing Speech* — could resolve `graded`, its Grade deciding how many stages, or how much of the field, it steadies. Slice 2's default Rally is the simple automatic one above.
 
 The classic figure is the **Circle** — steadier than the levy (a high Nerve tier) though not immune —
 spending an ACTION to Rally the Squares dying around it. That is the whole loop of Slice 2 in one
