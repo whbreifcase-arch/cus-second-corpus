@@ -10,8 +10,11 @@ behavior*.
 > - **[Vertical Slice 3](slice-3/README.md)** — a battle makes history: **Persistence** as temporal *scope* on State, the **Aftermath** (Wounds → Injury → Scar, the Morale check → Mind Scar, death), the **Caravan**, and the **campaign loop**.
 > - **Slice 4** (next) — history deepens: recruitment, the map & travel, the Story module's Bonds accruing like Scars.
 >
-> The inherited A–N files are lineage only and are **not** authoritative here; the Second Corpus is
-> rebuilt in dependency order, not by copying the First Corpus forward.
+> The First Corpus's v0.6 files (A–N and the old HTML/Lua) are **not** carried in this tree — they
+> live, frozen and authoritative, in
+> [`cus-kernel-rebuild`](https://github.com/whbreifcase-arch/cus-kernel-rebuild) and in this repo's
+> git history. The Second Corpus is rebuilt in dependency order from the master inventories, not by
+> copying the First Corpus forward.
 
 ## Where things stand
 

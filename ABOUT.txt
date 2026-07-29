@@ -1,2 +1,0 @@
-﻿# CUS Kernel Rebuild
-REVIEW.html is generated from the .md docs
