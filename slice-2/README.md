@@ -17,14 +17,14 @@ signed rulings in `cus-concordance`. Nothing here is copied from the frozen Firs
 | # | Doc | Adds |
 |---|---|---|
 | 1 | [01_MIND_CHANNEL.md](01_MIND_CHANNEL.md) | The **Mind channel** — Morale (damage) · **Nerve** (the tiered save) · the Steady→Shaken→Broken track · Shock · Fear-as-damage. The symmetric twin of the Body channel. |
-| 2 | [02_THE_CIRCLE.md](02_THE_CIRCLE.md) | The **Circle** — 3 AP · faceless (no facing, never flanked) · breaks only by a **written trigger**, on its own meter, never by a Nerve test · never moves in formation. |
+| 2 | [02_THE_CIRCLE.md](02_THE_CIRCLE.md) | The **Circle** — differs from a Square in exactly three ways: 3 AP · faceless (no facing, never flanked) · never moves in formation. Its Mind channel (Morale/Nerve/break/Rout) is **identical to a Square's**. |
 | 3 | [03_THE_GROUP.md](03_THE_GROUP.md) | The **Formation** as a group Entity · Form Up · group MOVE (Squares only) · coherency · the **leader** · **Rout & Rally**. |
 | 4 | [04_WALKTHROUGH.md](04_WALKTHROUGH.md) | A worked group action — a Square unit under a Circle leader takes shock, one breaks and Routs, the leader Rallies it — closing the new loop with no undefined rule. |
 
 ## Where this sits in the object model (Slice 1 · 02_WORLD)
 Slice 2 is the first real test of whether the three-axis ontology holds when the corpus grows:
 - **Morale · Nerve · the Mind track** are new **State** on the Body-and-Mind Entity — owned at *(Entity, Instance)*, exactly like Wounds. No new machinery.
-- The **Circle** is a new **Entity** kind; its break condition is a **Written Trigger** on its *Definition* — the same invocation as Slice 1's Counter.
+- The **Circle** is a new **Entity** kind that differs only in Agency, facing, and formation — its Mind channel is ordinary State, identical in kind to a Square's (no new machinery).
 - The **Formation** is a new **Entity** that *contains* Figures without striping their agency (nesting, per 02_WORLD).
 - **Rally** is a new **Procedure**; **Rout** is a state consequence. Nothing invents a parallel system.
 
@@ -39,5 +39,5 @@ roll; Slice 2 builds the first, names the second, and defers it.]*
 
 ## Rulings honored
 - **Nerve** is a tiered save, rolled per incoming Morale point; there is **no 3-dice Nerve test**. *[Ruling 1]*
-- **Circle** = 3 AP, faceless; **breaks by a written trigger, never by dice**, on its own meter; **never moves in formation**. *[Rulings 2, 10, 13]*
+- **Circle** = 3 AP, faceless, **never moves in formation**; **breaks via the standard Mind channel, exactly like a Square** (more resilient only by a higher Nerve tier). *[Rulings 2, 10 (rev.), 13]*
 - **A leader can Rally.** *[Ruling 9]*

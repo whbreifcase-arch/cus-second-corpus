@@ -67,7 +67,7 @@ until Rallied.** The Temperament-specific rout behaviours are content for a late
 - **Only Rally steps the track up.** Nothing else recovers Morale in-battle; there is no passive
   regeneration. The will comes back because someone leads it back.
 
-The classic figure is the **Circle** — itself immune to Morale, breaking only by its own trigger —
+The classic figure is the **Circle** — steadier than the levy (a high Nerve tier) though not immune —
 spending an ACTION to Rally the Squares dying around it. That is the whole loop of Slice 2 in one
 image, and the next document plays it out.
 

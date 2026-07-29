@@ -2,12 +2,13 @@
 
 Slice 1 used one Entity kind — the **Square**, the rank-and-file figure with a facing and 2 AP. The
 **Circle** is the other kind: the exceptional figure — a hero, champion, or leader. It is a new
-**Entity** in the object model ([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)), and it plays by three
-rules the Square does not.
+**Entity** in the object model ([Slice 1 · 02_WORLD](../slice-1/02_WORLD.md)), and it differs from a
+Square in exactly **three** ways — more Agency, facelessness, and it never moves in formation. In
+**everything else — including how it breaks — a Circle is a Square.**
 
 ```
-SQUARE   2 AP   has a facing   may be flanked   tests Nerve, breaks by the Mind track   moves in formation
-CIRCLE   3 AP   faceless        never flanked    never tests Nerve, breaks by a trigger   never in formation
+SQUARE   2 AP   has a facing   may be flanked   tests Nerve · breaks by the Mind track   moves in formation
+CIRCLE   3 AP   faceless        never flanked    tests Nerve · breaks by the Mind track   never in formation
 ```
 
 ## Three AP
@@ -29,28 +30,23 @@ Facing is Position, and the Circle simply has a different Position relationship:
 Nothing else in the Counter procedure changes — the Circle is just an Entity whose facing field is
 "none."
 
-## It breaks by a trigger, never by dice
+## It breaks like a Square
 
-This is the load-bearing rule. **A Circle never takes shock, never rolls Nerve, and never touches the
-Steady→Shaken→Broken track.** It has **its own break meter**, and that meter is a **Written Trigger**,
-not a save. *[Ruling 10 / CON-0010: Circles break on their own meter, by a prewritten trigger, not
-by dice.]*
+A Circle runs the **Mind channel exactly as a Square does** ([01_MIND_CHANNEL.md](01_MIND_CHANNEL.md)):
+it has **Nerve**, takes **shock** when allies fall within 3″, rolls the tiered save per incoming
+Morale, steps **Steady → Shaken → Broken**, **Routs** when Broken, and is brought back by **Rally**.
+*[Ruling 10 / CON-0010, revised: a Circle breaks like a Square — there is no separate meter and no
+break-by-trigger.]*
 
-- A Circle carries a **break clause** on its **Definition** — an authored condition that, when it
-  fires, breaks the Circle: *"breaks if its Banner is destroyed," "breaks if its sworn rival falls,"
-  "breaks when the last of its Retinue is slain."* The content is per-character; the *mechanism* is
-  the same Written Trigger invocation that powers the Counter and Shock ([Slice 1 · 03_GRAMMAR](../slice-1/03_GRAMMAR.md)).
-- Until its clause fires, a Circle is **immune to Morale entirely** — a hero does not waver because
-  the line around it wavers. When the clause fires, the Circle breaks outright (it Routs, or does
-  whatever its clause states).
+A hero is more *resilient* than a levy, but that resilience is a **high Nerve tier** — a champion is
+typically Heavy Nerve (4+) — **not immunity.** A Circle's will can be ground down like anyone's; it
+simply saves more often, and, with 3 AP and usually the leader's role, it is far more often the one
+**doing** the Rallying than the one being Rallied.
 
-Object-model note: the Circle's break condition is owned at *(the Circle Entity, Definition)* — it is
-authored once, per hero, and read by the engine. It is not a hidden special case; it is a field, and
-a determined reader can see exactly what breaks this Circle.
-
-> Why this shape? A dice-driven morale track models a *crowd* — many small wills averaging out. A
-> hero is not a crowd; a hero breaks for a *reason*, at a *moment*, authored in advance. Modelling
-> that as a trigger rather than a roll is the difference between a statistic and a story beat.
+Object-model note: nothing special is added here. The Circle's Morale, Nerve, and Mind track are
+ordinary **State** at *(the Circle Entity, Instance)* — identical in kind to a Square's. The Circle
+introduces no new machinery to the Mind channel; it just carries a different Nerve tier and more
+Agency.
 
 ## It does not move in formation
 

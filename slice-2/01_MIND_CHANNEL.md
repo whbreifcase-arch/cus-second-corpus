@@ -61,7 +61,7 @@ or Dead, every *friendly* figure within 3″ takes 1 Morale** (a shock) and roll
 not break because its own bodies are tough — it breaks because it watches its neighbours fall.
 
 - Shock is a **Written Trigger** ([Slice 1 · 03_GRAMMAR](../slice-1/03_GRAMMAR.md)) carried by the *felling* event: "on a friendly KO/Dead within 3″, deal 1 Morale." Free, fires once per occurrence, gated by Position (the 3″).
-- A **Circle never takes shock** — it has no Nerve and does not use this channel at all (see [02_THE_CIRCLE.md](02_THE_CIRCLE.md)).
+- A **Circle takes shock and rolls Nerve like any figure** — a hero is *resilient* (usually a high Nerve tier), **not immune** (see [02_THE_CIRCLE.md](02_THE_CIRCLE.md)).
 
 ## The Morale check — named here, built in Slice 3
 

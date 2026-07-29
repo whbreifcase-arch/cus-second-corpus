@@ -8,15 +8,15 @@ loop **closes**.
 ## The board
 
 **Player** — a Formation of three Squares **S1 · S2 · S3** (each `wounds 2 · armour M(5+) · nerve M(5+)`),
-in coherency, with a **Circle leader C** (`3 AP · faceless · immune to Morale · leadership 3″`) fighting
+in coherency, with a **Circle leader C** (`3 AP · faceless · Nerve H (4+) · leadership 3″`) fighting
 beside them (never *in* the Formation — [02_THE_CIRCLE.md](02_THE_CIRCLE.md)).
 
 **Enemy** — two Squares **E1 · E2** (`wounds 2 · armour M`).
 
 | Instance (start) | Mind | Body | in Formation? |
 |---|---|---|---|
-| **S1 · S2 · S3** | Steady | 2 | yes (coherent) |
-| **C** (Circle) | — *(no Mind channel)* | 2 | never |
+| **S1 · S2 · S3** | Steady *(Nerve M, 5+)* | 2 | yes (coherent) |
+| **C** (Circle) | Steady *(Nerve H, 4+)* | 2 | never (fights beside) |
 
 ---
 
@@ -27,7 +27,7 @@ beside them (never *in* the Formation — [02_THE_CIRCLE.md](02_THE_CIRCLE.md)).
 - **⚡ Shock (Written Trigger).** S1's KO deals **1 Morale** to every friendly within 3″. Roll one Nerve die each (M = 5+):
   - **S2** → `3` → **fails** → Steady → **Shaken**.
   - **S3** → `6` → **saves** → stays **Steady**.
-  - **C** → **immune** — a Circle has no Nerve and takes no shock. Unmoved.
+  - **C** → rolls Nerve like anyone (H = 4+): `5` → **saves** → stays **Steady**. A hero is resilient, not immune.
 - **E2 strikes S2** → Grade 2 → 1 Wound. S2's Armour → `4` → fails → **S2: 2 → 1**.
   *(Note: S2 is Shaken, but Shaken only penalises a figure's **own** ACTIONs — its Armour save is unaffected.)*
 
@@ -51,7 +51,7 @@ beside them (never *in* the Formation — [02_THE_CIRCLE.md](02_THE_CIRCLE.md)).
 - **⚡ Shock.** S3's KO deals 1 Morale to friendlies within 3″:
   - **S2** is **already Shaken** → Nerve `2` → **fails** → **Shaken → Broken.**
     → **S2 Routs:** next activation it must flee, may make no offensive ACTION, and **drops out of the Formation.** The unit is coming apart.
-  - **C** → immune again.
+  - **C** → Nerve (H, 4+): `6` → **saves** → stays **Steady**. The hero's will holds where the levy's broke — a save, not an exemption.
 - **E2 repositions behind C** and strikes it in the **rear**.
   - **Faceless:** a Square struck in the flank could not answer — but **C has no flanks.** C **Counters from the rear** (a free melee packet, Slice 1): `6 · 5 · 4 · 3` → 3 Successes → Grade 3 → 1 Wound + Guard on E2. The hero cannot be caught from behind.
 
@@ -69,9 +69,10 @@ beside them (never *in* the Formation — [02_THE_CIRCLE.md](02_THE_CIRCLE.md)).
 | C | — | 2 | held the line |
 
 **Result:** the unit that was one failed save from routing off the table is still fighting, because
-a single Entity immune to the panic spent one ACTION to reverse it. Two Squares are down, but the
-line did not break — the Circle broke the **Rout**, not by a bonus, but by being the one thing on the
-field the Mind channel cannot touch.
+a leader who kept its own feet — a steadier will (Heavy Nerve) and a spare action out of three —
+spent one ACTION to reverse the Rout. Two Squares are down, but the line did not break. The Circle
+held it not by being *immune* to the panic, but by being **more resistant** to it and having the
+Agency to lead the rest back.
 
 ---
 
@@ -86,7 +87,7 @@ field the Mind channel cannot touch.
 | Shock (Written Trigger) | KO within 3″ → 1 Morale | 01 (reuses Slice 1 grammar) |
 | Circle: 3 AP | C's three acts | 02 · Ruling 2 |
 | Circle: faceless | the rear Counter | 02 |
-| Circle: immune / no Nerve | took no shock | 02 · Ruling 10 |
+| Circle: same Mind channel | took shock, saved on Nerve (H 4+) | 02 · Ruling 10 (rev.) |
 | Circle: not in formation | C moved on its own AP | 02 · Ruling 13 |
 | Formation & coherency | the screened unit, S2 dropping out on Rout | 03 |
 | Rout | Broken S2 flees, leaves Formation | 03 |
