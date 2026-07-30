@@ -15,6 +15,9 @@ State	LIVE	state	slice-1/02_WORLD.md		What is true now, owned at exactly one Ins
 Transition	LIVE	transition	slice-1/02_WORLD.md		The named moment a State changes; emitted by the Procedure that owns that State.
 Trigger	LIVE	trigger	slice-1/02_WORLD.md		A clause on a Definition that watches for a named Transition (a Written Trigger).
 Invocation	LIVE	invocation	slice-1/02_WORLD.md		A watched Transition firing a PACKET through a Trigger.
+Agency	LIVE	agency	slice-1/01_PRIMITIVES.md		Renewing Resource (AP) — refills every activation; the only pool a figure spends to act, on its own activation.
+Reserve	LIVE	reserve	slice-1/01_PRIMITIVES.md	PROVISIONAL	Finite Resource — spend -> empty -> restore. Renamed from the old 'Charge' Resource so the name no longer collides with the Charge invariant. Skins: ammo, arrows, fuel, spell uses...
+Strain	LIVE	strain	slice-1/01_PRIMITIVES.md		Accumulating Resource — rises with use; vents or punishes.
 Packet	LIVE	packet	slice-1/03_GRAMMAR.md		The unit of action in the grammar (PACKET).
 Grade	LIVE	grade	slice-1/03_GRAMMAR.md	First-Corpus D	How well a roll succeeded — the graded outcome (the Success Grade; replaces the retired Ladder/Rungs).
 Effect	LIVE	effect	slice-1/03_GRAMMAR.md		What resolving a Grade changes — a Wound, a Push, Guard. Writes State or Position, nothing else.
@@ -23,10 +26,13 @@ Figure	LIVE	figure	composition/03_UNIT_PROFILE.md	CON-0023	The Entity for a unit
 Archetype	LIVE	archetype	composition/02_ARCHETYPE.md	CON-0023	The rendered identity label — a Presentation view, never authored/stored/resolved.
 FrameSpec	LIVE	framespec	composition/02_ARCHETYPE.md	CON-0023	The Role x Tool socket schema — the *functional* frame Signature specializes. Owns no fact.
 Frame	LIVE	frame	interface/01_FRAME.md	CON-0023	The *physical* face — FrameSpec plus the physical Frame housing. Not a layer or root Object. (The functional frame Signature specializes is the Role x Tool cell — see FrameSpec.)
-Signature	LIVE	signature	composition/02_ARCHETYPE.md	CON-0023	Specializes the functional frame; does not resolve it.
+Signature	LIVE	signature	composition/02_ARCHETYPE.md	CON-0023	Specializes the functional frame into a decision loop; does not resolve it. A Signature carries a recurring causal invariant (see 04_SIGNATURE_INVARIANTS).
 Tempo	LIVE	tempo	composition/02_ARCHETYPE.md	CON-0022	Cadence of the decision loop, not movement speed.
 Role	LIVE	role	composition/01_AXES.md		Pressure / Anchor / Utility.
 Tool	LIVE	tool	composition/01_AXES.md		Melee / Ranged / Hybrid.
+Charge	LIVE	charge	composition/04_SIGNATURE_INVARIANTS.md	PROVISIONAL	Signature invariant: accumulate potential, then release it as a discrete burst (ACCUMULATE->HOLD->RELEASE->RESET). Not the finite Resource (that is Reserve), not lowercase 'charge' (a run-up).
+Channel	LIVE	channel	composition/04_SIGNATURE_INVARIANTS.md	PROVISIONAL	Signature invariant: continuously apply an effect while remaining committed (BEGIN->MAINTAIN->END/INTERRUPT). Absorbs the retired 'Sustain'.
+Cycle	LIVE	cycle	composition/04_SIGNATURE_INVARIANTS.md	PROVISIONAL	Signature invariant: alternate productive and recovery states as capability periodically exhausts (READY->SPEND Reserve->EMPTY->RESTORE).
 Morale	LIVE	morale	slice-2/01_MIND_CHANNEL.md		The Mind channel's incoming pressure.
 Nerve	LIVE	nerve	slice-2/01_MIND_CHANNEL.md	CON-0001;CON-0011	A tiered SAVE rolled per incoming Morale point.
 Circle	LIVE	circle	slice-2/02_THE_CIRCLE.md	CON-0010	Breaks like a Square via the Mind channel; differs by +Agency / faceless / no formation.
@@ -34,7 +40,7 @@ Square	LIVE	square	slice-2/02_THE_CIRCLE.md		The rank-and-file figure with Moral
 Formation	LIVE	formation	slice-2/03_THE_GROUP.md		A coherency relationship; Form Up is a MOVE that ends in it.
 Persistence	LIVE	persistence	slice-3/00_PERSISTENCE.md		Temporal scope on State.
 Aftermath	LIVE	aftermath	slice-3/00_PERSISTENCE.md		The boundary Procedure that records durable State.
-Scar	LIVE	scar	slice-3/01_HARM_LIFECYCLE.md	CON-0023	Figure State (Wounds->Injury->Scar; Mind Scar); not an Overlay.
+Scar	LIVE	scar	slice-3/01_HARM_LIFECYCLE.md	CON-0023	Figure Instance State (Wounds->Injury->Scar; Mind Scar); not an Overlay.
 Book	LIVE	book	interface/04_BOOK_AND_CARAVAN.md		Personal container; membership is a Relationship, Book->Figure Instance.
 Caravan	LIVE	caravan	interface/04_BOOK_AND_CARAVAN.md	CON-0023	Shared container; carries Books, not the roster directly.
 Shove	RETIRED	shove	Push	CON-0012	'Shove' is retired -> Push (a Push Effect on a packet).
@@ -46,3 +52,4 @@ Nerve roll	RETIRED	nerve-check	Morale check / tiered Nerve save	CON-0001;CON-001
 Nerve check	RETIRED	nerve-check	Morale check / tiered Nerve save	CON-0001;CON-0011	Nerve is a tiered SAVE; the aftermath roll is the Morale check.
 MOVE-class	RETIRED	move-class	a MOVE (one of the three verbs)	Slice-1 03_GRAMMAR	'MOVE-class' is illegal vocabulary; Form Up is a MOVE with a coherency requirement.
 one-way ratchet	RETIRED	one-way-ratchet	Mind steps down on unsaved Morale; Rally steps up	Slice-2 01_MIND_CHANNEL	Mind track steps down on unsaved Morale; only Rally steps up in-battle.
+Sustain	RETIRED	sustain	Channel	PROVISIONAL	'Sustain' collapses into Channel — continuous application is Channel's essence (04_SIGNATURE_INVARIANTS).

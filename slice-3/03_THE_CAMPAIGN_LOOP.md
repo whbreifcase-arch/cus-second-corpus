@@ -28,7 +28,7 @@ advances one step. Advancing the clock fires each `campaign` State's owned **`ad
 
 - **Injuries heal** — one step per calm clock-turn (two with a Healer). A fully healed Injury clears; a neglected one **hardens into a Scar** ([01_HARM_LIFECYCLE.md](01_HARM_LIFECYCLE.md)).
 - **Rattle clears** — a Rattled mind steadies after a calm turn.
-- **Finite Resources replenish** — `Charge` refills from the Caravan's stores.
+- **Finite Resources replenish** — `Reserve` refills from the Caravan's stores.
 - **Scars do not move** — `permanent` is permanent; the clock does nothing to them.
 
 The clock is also **pressure**: resting to heal costs time, and time is not free — supplies dwindle,
