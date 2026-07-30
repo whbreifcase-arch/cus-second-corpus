@@ -66,7 +66,7 @@ State's `advance_rule` fires:
 
 - **S1's severe Injury** — carried, not rested: it does not heal, but the bed keeps it alive, and it stabilises one step **severe → Lame** (walking-wounded). (A Rest would have healed it further; hurrying did not.)
 - **S2's Rattle** — no calm turn, so it **does not clear.**
-- `Charge` stores top up; Scars, had anyone had one, would not move. *(S2's Morale check came up Rattle, not a **Mind Scar**, only because C was there for the `+1`; alone, that `1` lands a permanent Nerve-tier drop. The leader's presence was the difference between a bad week and a lasting wound.)*
+- `Reserve` stores top up; Scars, had anyone had one, would not move. *(S2's Morale check came up Rattle, not a **Mind Scar**, only because C was there for the `+1`; alone, that `1` lands a permanent Nerve-tier drop. The leader's presence was the difference between a bad week and a lasting wound.)*
 
 Then the next scenario begins, and the **Battle-Start Procedure**
 ([00_PERSISTENCE.md](00_PERSISTENCE.md)) — the entrance twin of the Aftermath — runs:

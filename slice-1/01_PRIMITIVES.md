@@ -49,8 +49,12 @@ A Resource is a limited quantity spent to produce change, typed by replenishment
 | Kind | Colour | Behaviour | In Slice 1 |
 |---|---|---|---|
 | **Agency** | 🟢 renewing | Refills every activation | ✅ the only Resource in the slice |
-| **Charge** | 🟡 finite | Depletes; an action/event restores | deferred (ranged) |
+| **Reserve** | 🟡 finite | Depletes; an action/event restores | deferred (ranged) |
 | **Strain** | 🔴 accumulating | Rises with use; vents or punishes | deferred |
+
+> *`Reserve` is the finite Resource formerly named `Charge`. Renamed (⚠ **PROVISIONAL**, pending
+> Concordance ratification — proposed CON-0026) so the name no longer collides with the **Charge**
+> Signature invariant — see [composition/04_SIGNATURE_INVARIANTS.md](../composition/04_SIGNATURE_INVARIANTS.md).*
 
 ### Agency
 

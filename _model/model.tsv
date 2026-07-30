@@ -4,20 +4,24 @@
 #        | forbidden  (a retired claim; pattern = Python regex that detects it in prose)
 # This is the 'machine language' for how terms relate. Forbidden rows drive the prose sweep;
 # canonical rows say what IS true. Every row cites a ruling. Checked by check.py.
-rel-figure-authored	canonical	Author	authors	Figure	CON-0023		You author the Figure; the authored fields are authoritative.
+rel-figure-authored	canonical	Author	authors	Figure Definition	CON-0023		You author the Figure Definition; the authored fields are authoritative.
 rel-archetype-rendered	canonical	Presentation	renders	Archetype	CON-0023		The Archetype is rendered from the Figure; never authored/stored/resolved.
 rel-framespec-socket	canonical	FrameSpec	socketsFrom	Role x Tool	CON-0023		FrameSpec = Role x Tool, a socket schema that owns no fact.
-rel-signature-spec	canonical	Signature	specializes	Frame	CON-0023		Signature specializes the Frame; it does not resolve it.
+rel-signature-spec	canonical	Signature	specializes	FrameSpec (functional frame)	CON-0023		Signature specializes the functional frame — the Role x Tool / FrameSpec cell — into a decision loop; not the physical Frame.
 rel-tempo-paces	canonical	Tempo	paces	Figure	CON-0022		Tempo is the cadence of the decision loop, not movement.
-rel-figure-owns	canonical	Figure	owns	role/tool	CON-0023		The Figure Definition owns role/tool; FrameSpec owns nothing.
-rel-caravan-carries	canonical	Caravan	carries	Book	CON-0023		The Caravan carries Books.
-rel-book-membership	canonical	Book	contains	Figure	CON-0023		Book->Figure is a membership Relationship (as is Caravan->Book).
-rel-scar-state	canonical	Scar	isStateOf	Figure	CON-0023		Scar is Figure State (Wounds->Injury->Scar; Mind Scar), not an Overlay.
+rel-figure-owns	canonical	Figure Definition	owns	role/tool	CON-0023		The Figure Definition cell owns role/tool; FrameSpec owns nothing.
+rel-caravan-carries	canonical	Caravan	carries	Book	CON-0023		The Caravan carries Books; membership is a Relationship, not a stored roster.
+rel-book-membership	canonical	Book	hasMember	Figure Instance	CON-0023		Book->Figure is a membership Relationship — an edge to the individual Figure Instance, not a stored roster. Neither Book nor Caravan owns a roster list.
+rel-scar-state	canonical	Scar	isStateOf	Figure Instance	CON-0023		Scar is Figure Instance State (Wounds->Injury->Scar; Mind Scar), not an Overlay.
 rel-nerve-save	canonical	Nerve	savesAgainst	Morale	CON-0001;CON-0011		Nerve is a tiered save rolled per incoming Morale point.
 rel-ap-rank	canonical	AP	scalesWith	Rank	CON-0002		AP is by Rank — Square 2, Circle 3.
 rel-packet-tool	canonical	Packet	hasTool	Melee/Ranged/Hybrid	CON-0023		Packet Tools are Melee/Ranged/Hybrid (no Reaction/Support category).
 rel-object-axes	canonical	Object	standsOn	Ontology/Layer/Ownership	Slice-1 02_WORLD		Every Object stands on three orthogonal axes.
 rel-packet-faces	canonical	PacketCard	presents	both faces	CON-0023		Both Packet-card faces are Presentation; the JSON in code is the Definition.
+rel-charge-invariant	canonical	Charge	accumulatesThenReleases	a discrete burst	PROVISIONAL		Charge accumulates potential, then releases it as one committed burst (ACCUMULATE->HOLD->RELEASE->RESET).
+rel-channel-invariant	canonical	Channel	continuouslyApplies	while committed	PROVISIONAL		Channel continuously applies an effect while the source stays committed (BEGIN->MAINTAIN->END).
+rel-cycle-invariant	canonical	Cycle	alternates	use and restoration	PROVISIONAL		Cycle alternates productive use with forced restoration around a Reserve (READY->SPEND->EMPTY->RESTORE).
+rel-reserve-resource	canonical	Reserve	isA	finite Resource	PROVISIONAL		Reserve is the finite Resource kind (spend->empty->restore); renamed from the old 'Charge' Resource.
 archetype-operative	forbidden	Archetype	is	executable/operative/stored	CON-0023	Archetype[^\n]{0,60}(executable|operative|compiled|derived|is stored|is authored)	Archetype is a rendered Presentation view — never operative/authored/stored.
 archetype-author	forbidden	(someone)	authors/stores/resolves	Archetype	CON-0023	(author|stor|resolv)\w*\s+(an?\s+|the\s+)?Archetype	You author the Figure; Presentation renders the Archetype (never authored/stored/resolved).
 frame-hierarchy	forbidden	Frame	contains	Archetype	CON-0023	Frame(?!Spec)[^\n]{0,40}(contains|→)[^\n]{0,20}Archetype	Frame does not contain Archetypes; FrameSpec is a socket schema.
@@ -32,3 +36,4 @@ support-role	forbidden	Support/Control	isA	Role	First-Corpus A	(Role[^\n]{0,20}(
 tempo-speed	forbidden	Tempo	isA	speed	CON-0022	Tempo[^\n]{0,25}(speed|movement rate)	Tempo is the cadence of the decision loop, not movement.
 packet-back-def	forbidden	PacketBack	isA	Definition	CON-0023	back[^\n]{0,15}(=|is)[^\n]{0,6}Definition	Both Packet-card faces are Presentation; the JSON in code is the Definition.
 caravan-roster	forbidden	Caravan	owns	roster	CON-0023	Caravan[^\n]{0,30}(carries|owns)[^\n]{0,10}(the )?roster	Caravan carries Books; the roster is membership Relationships (Book->Figure, Caravan->Book).
+charge-resource	forbidden	Charge	isA	(finite) Resource	PROVISIONAL	\bCharge\b[^\n]{0,8}(🟡|finite|refills?|replenishes?|depletes?)	The finite Resource is 'Reserve', not 'Charge'; capital Charge is a Signature invariant.

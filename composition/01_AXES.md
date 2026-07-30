@@ -58,8 +58,8 @@ psychology** the figure reverts to (e.g. leaderless, or Broken).
 |---|---|
 | **Role** × **Tool** | the **Frame** (functional cell) → [02_ARCHETYPE](02_ARCHETYPE.md) |
 | **Tempo** | the Archetype's **cadence** → 02_ARCHETYPE |
-| **Temperament** | a **Unit Profile** layer, independent of Archetype → [03_UNIT_PROFILE](03_UNIT_PROFILE.md) |
+| **Temperament** | a **Figure Definition** field, independent of Archetype → [03_UNIT_PROFILE](03_UNIT_PROFILE.md) |
 | **Rank** | Chassis (shape/Agency) |
 | **Creature Type** | Chassis |
 
-*Next: [02_ARCHETYPE.md](02_ARCHETYPE.md) — how Role, Tool, Signature, and Tempo compile into an Archetype.*
+*Next: [02_ARCHETYPE.md](02_ARCHETYPE.md) — how Role, Tool, Signature, and Tempo render as an Archetype.*

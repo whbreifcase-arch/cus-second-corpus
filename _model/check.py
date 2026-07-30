@@ -38,17 +38,13 @@ GLOSSARY_TSV = os.path.join(HERE, "glossary.tsv")
 MODEL_TSV = os.path.join(HERE, "model.tsv")
 GLOSSARY_MD = os.path.join(ROOT, "GLOSSARY.md")
 
-# Canonical docs governed (globs, relative to ROOT). Root uses README.md explicitly,
-# so the generated GLOSSARY.md is never self-scanned (it names dead terms on purpose).
-CANON_GLOBS = [
-    "README.md",
-    "composition/**/*.md",
-    "interface/**/*.md",
-    "slice-1/**/*.md",
-    "slice-2/**/*.md",
-    "slice-3/**/*.md",
-]
+# Canonical docs governed: every markdown doc except the ignored areas below. Using a
+# broad glob (not an enumerated slice list) means future slices — Slice 4 and beyond —
+# are scanned automatically, with no edit here.
+CANON_GLOBS = ["README.md", "**/*.md"]
 IGNORE_TOP = {"_model", "_retired", ".git", "notes"}
+# Files skipped even at a non-ignored path: the generated glossary names dead terms on purpose.
+IGNORE_FILES = {"GLOSSARY.md"}
 
 ALLOW_RE = re.compile(r"retired-lint:\s*allow\s+([\w,\-\s]+?)\s*(?:reason:|-->)")
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
@@ -114,7 +110,7 @@ def canon_files():
     for g in CANON_GLOBS:
         for p in glob.glob(os.path.join(ROOT, g), recursive=True):
             rel = os.path.relpath(p, ROOT).replace("\\", "/")
-            if rel.split("/")[0] in IGNORE_TOP:
+            if rel.split("/")[0] in IGNORE_TOP or rel in IGNORE_FILES:
                 continue
             if os.path.isfile(p):
                 files.add(p)
