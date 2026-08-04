@@ -22,3 +22,9 @@ game.
 **The one number that matters:** across ~1.5M characters, 219 commits, five weeks, two
 design lines and six engine states, the number of recorded games played is **zero** —
 and five separate systems for recording them have been built and left empty.
+
+> **Amendment 1 (2026-08-04).** The designer has confirmed the game *has* been played
+> throughout — *"I lowkey just kept tweaking shit after playing."* The gap is the
+> record, not the play. This makes the diagnosis sharper: because nothing is written
+> down, each rebuild cannot inherit what the last table taught, and re-derives from
+> documents instead. See Amendment 1 at the top of the report.

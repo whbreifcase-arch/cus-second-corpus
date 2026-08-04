@@ -312,10 +312,27 @@ does not.
 
 ---
 
-## I · THE FINDING THIS REPORT WOULD MOST LIKE TO BE WRONG ABOUT
+## I · THE FINDING THIS REPORT WOULD MOST LIKE TO BE WRONG ABOUT — **AND WAS**
 
 That the game has never been played.
 
-It rests entirely on negative evidence. It is the load-bearing fact under most of the
-report's recommendations. And it is the single easiest thing in the world to overturn:
-one file, in a folder that has been empty in every incarnation of this project.
+It rested entirely on negative evidence. It was the load-bearing fact under most of
+this report's recommendations. And it was overturned the day the report was filed, by
+the only person who could overturn it:
+
+> *"I lowkey just kept tweaking shit after playing."*
+
+**Recorded here as the correction it is.** The play happened and has been steering the
+design all along. What the corpus is missing is the *write-down* — and that gap sits
+exactly where every rebuild loses its inheritance, which is why the artifacts drift
+toward architecture while the instincts keep improving.
+
+Two consequences for anyone reading this appendix later:
+
+1. **Every "untested" verdict in this report should be read as "unrecorded."** The
+   numbers were still never written down, so they remain unaudited — but they are not
+   unexamined.
+2. **The negative-evidence method did its job and also showed its edge.** Seven
+   independent teams converged on a true statement about the corpus (`no record`) and
+   an untrue inference from it (`no play`). Exhaustive absence proves what is not in
+   the documents. It never proves what did not happen.

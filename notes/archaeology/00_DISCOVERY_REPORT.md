@@ -12,6 +12,46 @@ Obsidian vault. ~1.5M characters, 219 git commits, 2026-07-01 → 2026-08-03.
 
 ---
 
+## AMENDMENT 1 — 2026-08-04, from the designer
+
+**The report's central factual claim was wrong, and the correction makes the diagnosis
+sharper rather than weaker.**
+
+Seven teams found no record of the game being played and concluded it had never been
+tested. The designer's correction: *"I lowkey just kept tweaking shit after playing."*
+
+**So the game has been played, repeatedly, and play has been driving the design all
+along. What is missing is not the play. It is the record of it.**
+
+Every finding in this report that rests on the *absence of a play record* stands as
+written. Every finding that inferred *absence of play* from it is withdrawn. Concretely:
+
+- **C1 is amended** (see §4). The corpus contains no recorded observation; it does not
+  follow that no observation occurred.
+- **The "no falsifier" diagnosis is withdrawn in its strong form.** There is a
+  falsifier — a table — and it has been running the whole time.
+- **What replaces it is worse, and better-evidenced.** Play informed the design and
+  then evaporated. Because nothing was written down, **each rebuild could not inherit
+  what the last table taught, and had only documents to re-derive from** — which is
+  precisely why every rebuild is a vocabulary rebuild. The lesson dies between the
+  session and the next artifact.
+- **This explains the pattern the teams could not otherwise explain:** why the design's
+  *instincts* keep getting better (the Table Companion's engine is a real improvement;
+  the Parry cut is correct; morale-asleep-with-its-hooks-printed is the right call)
+  while the *artifacts* keep getting further from a game. The instincts are being
+  trained by play. The artifacts are being trained by documents.
+- **The prescription changes accordingly.** It is not "go and play it." It is **write
+  down four sentences when you already have.** The corpus already specifies the format,
+  three times over, and prints the blank line for it: *"Goblins: 7 · trick: the Boss's
+  Whip · posture: Rabble · how it went: ______."* The Core Rulebook calls that line
+  *"the whole difficulty system."*
+
+The teams' unanimity on C1 remains the strongest signal the investigation produced —
+it just points at a recording gap, not a testing gap. That is a far cheaper problem,
+and it is the one this report would have most liked to be wrong about (§16, App. I).
+
+---
+
 ## 0 · HOW EVIDENCE WAS WEIGHTED
 
 Every team applied the same ladder, and stated the tier behind each finding.
@@ -209,7 +249,7 @@ and the prose says `on its own meter`.
 
 | # | Finding | Teams | Tier | Confidence |
 |---|---|---|---|---|
-| C1 | **No record exists of any human ever playing any version of this game.** Five capture apparatuses across three lines; all empty. | **A B C D E F G (7/7)** | W2 negative, exhaustive | **Very high** |
+| C1 | **No record exists of any human playing any version of this game.** Five capture apparatuses across three lines; all empty. *(Amended — see Amendment 1. The play happened; only the record is missing. The gap is between the table and the next artifact, and it is where every rebuild's inheritance is lost.)* | **A B C D E F G (7/7)** | W2 negative, exhaustive | **Very high** (as amended) |
 | C2 | **The project restarts rather than iterates.** Five to six full vocabulary resets in five weeks; each keeps the ideas and discards the artifacts. | **A B D E F G (6/7)** | W2 | **Very high** |
 | C3 | **Governance and architecture grow monotonically; playable content declines monotonically.** | **A B D E F G (6/7)** | W2 measured | **Very high** |
 | C4 | **"The table is the memory"** is the single most stable commitment in the corpus. | **A B C E F (5/7)** | **W4** × 9 derivations | **Very high** |
